@@ -12,7 +12,7 @@
     <artifactId>assu-parent-pom</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>assu-parent-pom</name>
-    <description>assu msa springcloud project</description>
+    <description>assu msa spring-cloud project</description>
 
     <properties>
         <java.version>11</java.version>
