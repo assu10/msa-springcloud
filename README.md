@@ -1,8 +1,20 @@
-# msa-spring cloud
-SpringCloud
+# MSA using SpringCloud
 
 ## Development Environment
 `Windows 10`, `JDK 11.0.6`, `SpringBoot 2.3.2`, `Maven 3.6.3`, `Git 2.22.0.windows.1`, `intellij`
+
+## Table of Contents
+- Config Server
+- Feign (REST Client)
+- Ribbon (Load Balancer)
+- Eureka (Service Discovery)
+- Zuul (Proxy API Gateway)
+- OAuth2, JWT (Security)
+- Sleath, Papertrail, Zipkin (Tracker)
+- Travis CI (Deploy)
+
+## Server Diagram
+TO-DO...
 
 ## How to run
 ```shell script
