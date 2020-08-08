@@ -2,12 +2,12 @@ package com.assu.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
+@EnableConfigServer
 @SpringBootApplication
-public class AssuParentPomApplication {
-
+public class ConfigserverApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AssuParentPomApplication.class, args);
+        SpringApplication.run(ConfigserverApplication.class, args);
     }
-
 }
