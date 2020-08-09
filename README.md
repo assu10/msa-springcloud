@@ -3,7 +3,7 @@
 ## Development Environment
 `Windows 10` `JDK 11.0.6` `SpringBoot 2.3.2.RELEASE` `Maven 3.6.3` `Git 2.22.0.windows.1` `intellij`
 [`Spring Cloud Hoxton.RELEASE`](https://spring.io/projects/spring-cloud) [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
-[`Erlang 23.0`](https://www.erlang.org/downloads)
+[`Erlang/OTP 23.0`](https://www.erlang.org/downloads)
 
  
 

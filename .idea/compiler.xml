@@ -13,12 +13,14 @@
     <bytecodeTargetLevel>
       <module name="assucloud" target="1.8" />
       <module name="configserver" target="11" />
+      <module name="event-service" target="11" />
       <module name="member-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="configserver" options="-parameters" />
+      <module name="event-service" options="-parameters" />
       <module name="member-service" options="-parameters" />
     </option>
   </component>
