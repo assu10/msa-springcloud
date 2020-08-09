@@ -6,17 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="member-service" />
         <module name="configserver" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="assucloud" target="1.8" />
       <module name="configserver" target="11" />
+      <module name="member-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="configserver" options="-parameters" />
+      <module name="member-service" options="-parameters" />
     </option>
   </component>
 </project>

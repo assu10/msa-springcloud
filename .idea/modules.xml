@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/assucloud.iml" filepath="$PROJECT_DIR$/assucloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/configserver/configserver.iml" filepath="$PROJECT_DIR$/configserver/configserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/member-service/member-service.iml" filepath="$PROJECT_DIR$/member-service/member-service.iml" />
     </modules>
   </component>
 </project>

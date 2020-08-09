@@ -18,6 +18,7 @@
 
   <modules>
     <module>configserver</module>
+    <module>member-service</module>
   </modules>
 
   <build>

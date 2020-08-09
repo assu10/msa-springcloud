@@ -21,6 +21,9 @@ TO-DO...
 
 ## How to run
 ```shell script
+-- 현재 프로젝트 바로 실행하기
+mvn spring-boot:run
+
 -- parent-pom 이 위치한 디렉터리안에 있는 메이븐 pom.xml 파일을 실행
 mvn clean package
 
