@@ -9,7 +9,7 @@
 
 ## Table of Contents
 - Config Server (환경설정 외부화)
-> [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)
+> [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)<br />
 > [AMQP doc](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/htmlsingle/#boot-features-amqp)
 - Feign (REST Client & Circuit Breaker)
 - Ribbon (Load Balancer)

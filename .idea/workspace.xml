@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f581000-6311-44ad-95c1-b5e52948f769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/member-service/src/main/java/com/assu/cloud/memberservice/config/CustomConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/member-service/src/main/java/com/assu/cloud/memberservice/controller/MemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/member-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/member-service/src/main/resources/bootstrap.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-repo" beforeDir="false" afterPath="$PROJECT_DIR$/config-repo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +111,7 @@
       <workItem from="1596897001886" duration="309000" />
       <workItem from="1596897348718" duration="1448000" />
       <workItem from="1596898854301" duration="99000" />
-      <workItem from="1596898970131" duration="24835000" />
+      <workItem from="1596898970131" duration="26812000" />
     </task>
     <task id="LOCAL-00001" summary="컨피그 서버 셋팅">
       <created>1596909694289</created>
@@ -130,7 +127,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596967167354</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="컨피그 서버에서 환경설정 변경값 갱신">
+      <created>1596979621279</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596979621280</updated>
+    </task>
+    <task id="LOCAL-00004" summary="README 수정">
+      <created>1596982138378</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596982138379</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +162,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="컨피그 서버 셋팅" />
-    <option name="LAST_COMMIT_MESSAGE" value="컨피그 서버 셋팅" />
+    <MESSAGE value="컨피그 서버에서 환경설정 변경값 갱신" />
+    <MESSAGE value="README 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="README 수정" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1506" y="63" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596902348271">
@@ -166,10 +179,11 @@
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
     <state x="-1155" y="109" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596968979235" />
-    <state x="-1445" y="3" key="CommitChangelistDialog2" timestamp="1596967161458">
-      <screen x="-1920" y="-112" width="1920" height="1040" />
+    <state x="380" y="0" key="CommitChangelistDialog2" timestamp="1596982132940">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-1445" y="3" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596967161458" />
+    <state x="-1445" y="3" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596979615745" />
+    <state x="380" y="0" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596982132940" />
     <state width="1346" height="353" key="GridCell.Tab.0.bottom" timestamp="1596967559506">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
@@ -214,10 +228,11 @@
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
     <state x="-1370" y="77" key="SettingsEditor/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596899757904" />
-    <state x="-1368" y="141" key="Vcs.Push.Dialog.v2" timestamp="1596909701212">
-      <screen x="-1920" y="-112" width="1920" height="1040" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1596982773442">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-1368" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596909701212" />
+    <state x="-1368" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596979668423" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596982773442" />
     <state x="-1414" y="144" width="907" height="641" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1596963344481">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
