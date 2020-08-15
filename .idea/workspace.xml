@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f581000-6311-44ad-95c1-b5e52948f769" name="Default Changelist" comment="컨피스 저장소의 중요 정보 보호(암호화)">
+    <list default="true" id="3f581000-6311-44ad-95c1-b5e52948f769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-repo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configserver/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configserver/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,7 @@
       <workItem from="1597484844340" duration="2767000" />
       <workItem from="1597490704077" duration="1650000" />
       <workItem from="1597493385072" duration="144000" />
-      <workItem from="1597493940898" duration="13748000" />
+      <workItem from="1597493940898" duration="15211000" />
     </task>
     <task id="LOCAL-00001" summary="컨피그 서버 셋팅">
       <created>1596909694289</created>
@@ -181,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597507475116</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="주석 추가">
+      <created>1597509219033</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597509219034</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +213,8 @@
     <MESSAGE value="환경설정 변경 전파 적용" />
     <MESSAGE value="컨피스 저장소의 중요 정보 보호(암호화)" />
     <MESSAGE value="bootstrap, application 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="bootstrap, application 정리" />
+    <MESSAGE value="주석 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="주석 추가" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1506" y="63" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596902348271">
@@ -222,10 +229,10 @@
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
     <state x="-1155" y="109" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596968979235" />
-    <state x="-1445" y="3" key="CommitChangelistDialog2" timestamp="1597507463682">
+    <state x="-1445" y="3" key="CommitChangelistDialog2" timestamp="1597509216160">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state x="-1445" y="3" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597507463682" />
+    <state x="-1445" y="3" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597509216160" />
     <state x="380" y="0" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596982844769" />
     <state x="-1180" y="163" key="FileChooserDialogImpl" timestamp="1597508690420">
       <screen x="-1920" y="-112" width="1920" height="1040" />
@@ -279,10 +286,10 @@
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
     <state x="-1370" y="77" key="SettingsEditor/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597488019765" />
-    <state x="-1368" y="141" key="Vcs.Push.Dialog.v2" timestamp="1597507811845">
+    <state x="-1368" y="141" key="Vcs.Push.Dialog.v2" timestamp="1597509226489">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597507811845" />
+    <state x="-1368" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597509226489" />
     <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596982914923" />
     <state x="-1828" y="-20" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597507879330">
       <screen x="-1920" y="-112" width="1920" height="1040" />
@@ -300,10 +307,10 @@
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
     <state x="-1147" y="53" key="new project wizard/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596987787608" />
-    <state x="-1297" y="113" width="672" height="678" key="search.everywhere.popup" timestamp="1597507751669">
+    <state x="-1297" y="113" width="672" height="678" key="search.everywhere.popup" timestamp="1597510260885">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state x="-1297" y="113" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597507751669" />
+    <state x="-1297" y="113" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597510260885" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
