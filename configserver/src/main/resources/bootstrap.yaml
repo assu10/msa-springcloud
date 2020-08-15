@@ -1,8 +1,12 @@
 spring:
   application:
     name: configserver
+  profiles:
+    active: native
   cloud:
     config:
       server:
+        native:
+          search-locations: file:C:/myhome/03_Study/13_SpringCloud/assucloud/config-repo/member-service
         encrypt:
           enabled: false

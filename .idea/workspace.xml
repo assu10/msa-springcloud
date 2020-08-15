@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f581000-6311-44ad-95c1-b5e52948f769" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="3f581000-6311-44ad-95c1-b5e52948f769" name="Default Changelist" comment="컨피스 저장소의 중요 정보 보호(암호화)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-repo" beforeDir="false" afterPath="$PROJECT_DIR$/config-repo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-repo/member-service/member-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-repo/member-service/member-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/member-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/member-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configserver/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configserver/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configserver/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configserver/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/member-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/member-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/member-service/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/member-service/src/main/resources/bootstrap.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/config-repo" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -71,6 +72,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ConfigserverApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ConfigserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="configserver" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.assu.cloud.ConfigserverApplication" />
@@ -115,7 +127,7 @@
       <workItem from="1597484844340" duration="2767000" />
       <workItem from="1597490704077" duration="1650000" />
       <workItem from="1597493385072" duration="144000" />
-      <workItem from="1597493940898" duration="6966000" />
+      <workItem from="1597493940898" duration="11982000" />
     </task>
     <task id="LOCAL-00001" summary="컨피그 서버 셋팅">
       <created>1596909694289</created>
@@ -159,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596993355872</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="컨피스 저장소의 중요 정보 보호(암호화)">
+      <created>1597502140775</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1597502140776</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +202,8 @@
     <MESSAGE value="컨피그 서버에서 환경설정 변경값 갱신" />
     <MESSAGE value="README 수정" />
     <MESSAGE value="환경설정 변경 전파 적용" />
-    <option name="LAST_COMMIT_MESSAGE" value="환경설정 변경 전파 적용" />
+    <MESSAGE value="컨피스 저장소의 중요 정보 보호(암호화)" />
+    <option name="LAST_COMMIT_MESSAGE" value="컨피스 저장소의 중요 정보 보호(암호화)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1506" y="63" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596902348271">
@@ -198,51 +218,55 @@
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
     <state x="-1155" y="109" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596968979235" />
-    <state x="-1445" y="3" key="CommitChangelistDialog2" timestamp="1596993351948">
+    <state x="-1445" y="3" key="CommitChangelistDialog2" timestamp="1597505083033">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state x="-1445" y="3" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1596993351948" />
+    <state x="-1445" y="3" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597505083033" />
     <state x="380" y="0" key="CommitChangelistDialog2/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596982844769" />
-    <state width="1514" height="375" key="GridCell.Tab.0.bottom" timestamp="1597493549939">
+    <state width="1513" height="375" key="GridCell.Tab.0.bottom" timestamp="1597506857843">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549939" />
+    <state width="1513" height="375" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857843" />
     <state width="1071" height="353" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242141" />
-    <state width="1514" height="375" key="GridCell.Tab.0.center" timestamp="1597493549938">
+    <state width="1513" height="375" key="GridCell.Tab.0.center" timestamp="1597506857842">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.0.center/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549938" />
+    <state width="1513" height="375" key="GridCell.Tab.0.center/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857842" />
     <state width="1071" height="353" key="GridCell.Tab.0.center/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242141" />
-    <state width="1514" height="375" key="GridCell.Tab.0.left" timestamp="1597493549938">
+    <state width="1513" height="375" key="GridCell.Tab.0.left" timestamp="1597506857842">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.0.left/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549938" />
+    <state width="1513" height="375" key="GridCell.Tab.0.left/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857842" />
     <state width="1071" height="353" key="GridCell.Tab.0.left/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242139" />
-    <state width="1514" height="375" key="GridCell.Tab.0.right" timestamp="1597493549938">
+    <state width="1513" height="375" key="GridCell.Tab.0.right" timestamp="1597506857843">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.0.right/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549938" />
+    <state width="1513" height="375" key="GridCell.Tab.0.right/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857843" />
     <state width="1071" height="353" key="GridCell.Tab.0.right/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242141" />
-    <state width="1514" height="375" key="GridCell.Tab.1.bottom" timestamp="1597493549939">
+    <state width="1513" height="375" key="GridCell.Tab.1.bottom" timestamp="1597506857844">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549939" />
+    <state width="1513" height="375" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857844" />
     <state width="1071" height="353" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242143" />
-    <state width="1514" height="375" key="GridCell.Tab.1.center" timestamp="1597493549939">
+    <state width="1513" height="375" key="GridCell.Tab.1.center" timestamp="1597506857843">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.1.center/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549939" />
+    <state width="1513" height="375" key="GridCell.Tab.1.center/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857843" />
     <state width="1071" height="353" key="GridCell.Tab.1.center/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242142" />
-    <state width="1514" height="375" key="GridCell.Tab.1.left" timestamp="1597493549939">
+    <state width="1513" height="375" key="GridCell.Tab.1.left" timestamp="1597506857843">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.1.left/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549939" />
+    <state width="1513" height="375" key="GridCell.Tab.1.left/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857843" />
     <state width="1071" height="353" key="GridCell.Tab.1.left/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242142" />
-    <state width="1514" height="375" key="GridCell.Tab.1.right" timestamp="1597493549939">
+    <state width="1513" height="375" key="GridCell.Tab.1.right" timestamp="1597506857844">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>
-    <state width="1514" height="375" key="GridCell.Tab.1.right/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597493549939" />
+    <state width="1513" height="375" key="GridCell.Tab.1.right/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597506857844" />
     <state width="1071" height="353" key="GridCell.Tab.1.right/0.0.1536.824/-1920.-112.1920.1040@0.0.1536.824" timestamp="1596964242142" />
+    <state x="-1285" y="109" key="RollbackChangesDialog" timestamp="1597504819801">
+      <screen x="-1920" y="-112" width="1920" height="1040" />
+    </state>
+    <state x="-1285" y="109" key="RollbackChangesDialog/0.0.1536.824/-1920.-112.1920.1040@-1920.-112.1920.1040" timestamp="1597504819801" />
     <state x="-1370" y="77" key="SettingsEditor" timestamp="1597488019765">
       <screen x="-1920" y="-112" width="1920" height="1040" />
     </state>

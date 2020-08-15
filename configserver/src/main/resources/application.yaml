@@ -1,13 +1,5 @@
 server:
   port: 8889    # 컨피그 서버가 수신 대기하는 포트
-spring:
-  profiles:
-    active: native
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: file:C:/myhome/03_Study/13_SpringCloud/assucloud/config-repo/member-service
 management:
   endpoints:
     web:
