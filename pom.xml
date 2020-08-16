@@ -19,6 +19,7 @@
   <modules>
     <module>configserver</module>
     <module>member-service</module>
+    <module>event-service</module>
   </modules>
 
   <build>

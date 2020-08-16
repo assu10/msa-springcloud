@@ -1,0 +1,10 @@
+server:
+  port: 8070
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: trueub.com/juhyun10/com.assu.cloud.eventservice.confi

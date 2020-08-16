@@ -9,7 +9,7 @@
 
 ## Table of Contents
 - Config Server (환경설정 외부화)<br />
-자세한 설명은 [여기](https://bravenamme.github.io/2020/08/16/spring-cloud-config-server/) 를 참고
+자세한 설명은 [여기](https://bravenamme.github.io/2020/08/16/spring-cloud-com.assu.cloud.eventservice.config-server/) 를 참고
 > [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) <br />
 > [AMQP doc](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/htmlsingle/#boot-features-amqp) <br />
 > [JCE jar download](https://www.oracle.com/java/technologies/javase-jce-all-downloads.html)
@@ -37,7 +37,7 @@ http://localhost:8889/member-service/dev
 http://localhost:8090/actuator/env
 
 -- port 재설정하여 서비스 띄우기
-C:\member-service> mvn clean install
+C:\> mvn clean install
 C:\configserver\target>java -jar configserver-0.0.1-SNAPSHOT.jar
 C:\member-service\target>java -Dserver.port=8090 -jar member-service-0.0.1-SNAPSHOT.jar
 C:\member-service\target>java -Dserver.port=8091 -jar member-service-0.0.1-SNAPSHOT.jar
@@ -58,6 +58,28 @@ POST http://localhost:8889/decrypt
 - Feign (REST Client & Circuit Breaker)
 - Ribbon (Load Balancer)
 - Eureka (Service Registry & Discovery)
+```shell script
+HOW TO RUN
+
+-- rabbitMQ 서버 실행
+C:\rabbitmq_server-3.8.6\sbin>rabbitmq-service.bat start
+
+-- port 재설정하여 서비스 띄우기
+C:\> mvn clean install
+C:\configserver\target>java -jar configserver-0.0.1-SNAPSHOT.jar
+C:\member-service\target>java -Dserver.port=8090 -jar member-service-0.0.1-SNAPSHOT.jar
+C:\member-service\target>java -Dserver.port=8091 -jar member-service-0.0.1-SNAPSHOT.jar
+C:\event-service\target>java -Dserver.port=8070 -jar event-service-0.0.1-SNAPSHOT.jar
+C:\event-service\target>java -Dserver.port=8071 -jar event-service-0.0.1-SNAPSHOT.jar
+
+-- actuator bus 종단점 호출하여 설정정보 변경 전파
+POST http://localhost:8090/actuator/bus-refresh
+
+-- 변경된 설정정보 확인
+GET http://localhost:8090/member/name?nick=JU
+GET http://localhost:8071/event/name?nick=JU
+
+```
 - Zuul (Proxy & API Gateway)
 - OAuth2, JWT (Security)
 - Sleath, Papertrail, Zipkin (Logging Tracker)
