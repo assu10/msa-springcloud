@@ -9,7 +9,7 @@
 
 ## Table of Contents
 - Config Server (환경설정 외부화)<br />
-자세한 설명은 [여기](https://bravenamme.github.io/2020/08/16/spring-cloud-com.assu.cloud.eventservice.config-server/) 를 참고
+자세한 설명은 [여기](https://bravenamme.github.io/2020/08/16/spring-cloud-config-server/) 를 참고
 > [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) <br />
 > [AMQP doc](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/htmlsingle/#boot-features-amqp) <br />
 > [JCE jar download](https://www.oracle.com/java/technologies/javase-jce-all-downloads.html)
