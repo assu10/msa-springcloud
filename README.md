@@ -2,7 +2,7 @@
 
 ## Development Environment
 `Windows 10` `JDK 11.0.6` `SpringBoot 2.3.2.RELEASE` `Maven 3.6.3` `Git 2.22.0.windows.1` `intellij`
-[`Spring Cloud Hoxton.RELEASE`](https://spring.io/projects/spring-cloud) [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
+[`Spring Cloud Hoxton.SR6`](https://spring.io/projects/spring-cloud) [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
 [`Erlang/OTP 23.0`](https://www.erlang.org/downloads)
 
  
@@ -78,6 +78,14 @@ POST http://localhost:8090/actuator/bus-refresh
 -- 변경된 설정정보 확인
 GET http://localhost:8090/member/name?nick=JU
 GET http://localhost:8071/event/name?nick=JU
+
+-- 유레카 서버 구축 후 재기동
+C:\> mvn clean install
+C:\configserver\target>java -jar configserver-0.0.1-SNAPSHOT.jar
+C:\eurekaserver\target>java -jar eurekaserver-0.0.1-SNAPSHOT.jar
+
+--유레카 콘솔 확인
+http://localhost:8761/
 
 ```
 - Zuul (Proxy & API Gateway)

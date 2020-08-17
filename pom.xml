@@ -20,6 +20,7 @@
     <module>configserver</module>
     <module>member-service</module>
     <module>event-service</module>
+    <module>eurekaserver</module>
   </modules>
 
   <build>
