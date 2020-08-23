@@ -84,9 +84,20 @@ C:\> mvn clean install
 C:\configserver\target>java -jar configserver-0.0.1-SNAPSHOT.jar
 C:\eurekaserver\target>java -jar eurekaserver-0.0.1-SNAPSHOT.jar
 
---유레카 콘솔 확인
+-- 유레카 콘솔 확인
 http://localhost:8761/
 
+-- 유레카 서비스 등록 후 재기동
+C:\eurekaserver\target>java -jar eurekaserver-0.0.1-SNAPSHOT.jar
+C:\member-service\target>java -jar member-service-0.0.1-SNAPSHOT.jar
+C:\event-service\target>java -Dserver.port=8071 -jar event-service-0.0.1-SNAPSHOT.jar
+C:\event-service\target>java -Dserver.port=8070 -jar event-service-0.0.1-SNAPSHOT.jar
+
+-- 유레카 서버에 등록된 레지스트리 내용 확인
+http://localhost:8761/eureka/apps/
+
+-- 특정 서비스 레지스트리 확인
+http://localhost:8761/eureka/apps/event-service
 ```
 - Zuul (Proxy & API Gateway)
 - OAuth2, JWT (Security)
