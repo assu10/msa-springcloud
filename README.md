@@ -58,6 +58,8 @@ POST http://localhost:8889/decrypt
 - Feign (REST Client & Circuit Breaker)
 - Ribbon (Load Balancer)
 - Eureka (Service Registry & Discovery)
+자세한 설명은 [여기](https://bravenamme.github.io/2020/08/26/spring-cloud-eureka/) 를 참고
+
 ```shell script
 HOW TO RUN
 
