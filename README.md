@@ -98,6 +98,15 @@ http://localhost:8761/eureka/apps/
 
 -- 특정 서비스 레지스트리 확인
 http://localhost:8761/eureka/apps/event-service
+
+-- Feign 적용 후 API 호출
+C:\> mvn clean install
+C:\configserver>java configserver-0.0.1-SNAPSHOT.jar
+C:\member-service\target>java -Dserver.port=8090 -jar member-service-0.0.1-SNAPSHOT.jar
+C:\member-service\target>java -Dserver.port=8091 -jar member-service-0.0.1-SNAPSHOT.jar
+C:\event-service\target>java event-service-0.0.1-SNAPSHOT.jar
+
+GET http://localhost:8070/event/member/hyori
 ```
 - Zuul (Proxy & API Gateway)
 - OAuth2, JWT (Security)
