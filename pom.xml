@@ -21,6 +21,7 @@
     <module>member-service</module>
     <module>event-service</module>
     <module>eurekaserver</module>
+    <module>zuulserver</module>
   </modules>
 
   <build>
