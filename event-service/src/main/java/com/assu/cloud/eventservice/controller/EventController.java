@@ -21,6 +21,11 @@ public class EventController {
 
     @GetMapping(value = "name/{nick}")
     public String getYourName(@PathVariable("nick") String nick) {
+        try {
+            Thread.sleep(4000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();;
+        }
         return "[EVENT] Your name is " + customConfig.getYourName() + ", nickname is " + nick;
     }
 
