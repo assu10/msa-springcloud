@@ -1,2 +1,8 @@
 server:
   port: 5555
+zuul:
+  ignored-services: *       # 유레카 기반 모든 경로 제외
+  prefix: /api              # 정의한 모든 서비스에 /api 접두어
+  routes:
+    event-service: /evt/**
+    member-service: /mb/**
