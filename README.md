@@ -58,16 +58,16 @@ POST http://localhost:8889/decrypt
 
 ---
 
-***- Feign (REST Client & Circuit Breaker)***
+***- Feign (REST Client & Circuit Breaker)***<br />
 자세한 설명은 [여기](https://assu10.github.io/dev/2020/06/18/spring-cloud-feign/) 를 참고
 
 ---
 
-- Ribbon (Load Balancer)
+***- Ribbon (Load Balancer)***<br />
 
 ---
 
-***- Eureka (Service Registry & Discovery)***
+***- Eureka (Service Registry & Discovery)***<br />
 자세한 설명은 [여기](https://bravenamme.github.io/2020/08/26/spring-cloud-eureka/) 를 참고
 
 ```shell script
@@ -123,7 +123,7 @@ GET http://localhost:8070/event/member/hyori
 
 ---
 
-- Zuul (Proxy & API Gateway)
+***- Zuul (Proxy & API Gateway)***<br />
 자세한 설명은 [여기](https://assu10.github.io/dev/2020/08/26/netflix-zuul/) 를 참고
 
 ```shell script
@@ -154,23 +154,23 @@ http://localhost:5555/api/evt/event/member/hyori
 
 ---
  
-- OAuth2, JWT (Security)
+***- OAuth2, JWT (Security)***<br />
 
 ---
  
-- Sleath, Papertrail, Zipkin (Logging Tracker)
+***- Sleath, Papertrail, Zipkin (Logging Tracker)***<br />
 
 ---
 
-- Travis CI (Build & Deploy)
+***- Travis CI (Build & Deploy)***<br />
 
 ---
 
-- Spring Cloud Messaging (비동기 마이크로서비스 구성)
+***- Spring Cloud Messaging (비동기 마이크로서비스 구성)***<br />
 
 ---
 
-- Hystrix + Turbine (Circuit Breaker & Dashboard, 여러 대의 WAS 한번에 모니터링)
+***- Hystrix + Turbine (Circuit Breaker & Dashboard, 여러 대의 WAS 한번에 모니터링)***<br />
 
 ---
 
