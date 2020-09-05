@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 //@FeignClient(name="member-service",url = "http://localhost:8090/member/")
 //@FeignClient("${service.id.member}")
-@FeignClient("${service.id.zuul}")        // OK
+@FeignClient("${service.id.zuul}")
 public interface MemberFeignClient {
     
     String URL_PREFIX = "/api/mb/member/";      // 회원 서비스의 주울 라우팅경로와 회원 클래스 주소

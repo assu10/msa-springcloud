@@ -8,7 +8,7 @@
  
 
 ## Table of Contents
-- Config Server (환경설정 외부화)<br />
+***- Config Server (환경설정 외부화)<br />***
 자세한 설명은 [여기](https://bravenamme.github.io/2020/08/16/spring-cloud-config-server/) 를 참고
 > [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) <br />
 > [AMQP doc](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/htmlsingle/#boot-features-amqp) <br />
@@ -55,9 +55,19 @@ POST http://localhost:8889/encrypt
 POST http://localhost:8889/decrypt
 
 ```
-- Feign (REST Client & Circuit Breaker)
+
+---
+
+***- Feign (REST Client & Circuit Breaker)***
+자세한 설명은 [여기](https://assu10.github.io/dev/2020/06/18/spring-cloud-feign/) 를 참고
+
+---
+
 - Ribbon (Load Balancer)
-- Eureka (Service Registry & Discovery)
+
+---
+
+***- Eureka (Service Registry & Discovery)***
 자세한 설명은 [여기](https://bravenamme.github.io/2020/08/26/spring-cloud-eureka/) 를 참고
 
 ```shell script
@@ -110,15 +120,64 @@ C:\event-service\target>java event-service-0.0.1-SNAPSHOT.jar
 
 GET http://localhost:8070/event/member/hyori
 ```
+
+---
+
 - Zuul (Proxy & API Gateway)
+자세한 설명은 [여기](https://assu10.github.io/dev/2020/08/26/netflix-zuul/) 를 참고
+
+```shell script
+HOW TO RUN
+
+-- 유레카 콘솔 접속하여 주울 등록되었는지 확인
+http://localhost:8761/
+
+-- 주울이 잘 떴는지 확인
+http://localhost:5555/actuator/env
+
+-- 주울이 라우팅하고 있는 경로 확인
+http://localhost:5555/actuator/routes
+
+-- 주울을 통해 이벤트 서비스의 REST API 호출
+http://localhost:5555/event-service/event/member/assu
+
+-- 컨피그 저장소 설정값 변경 후 내용 전파
+POST http://localhost:5555/actuator/bus-refresh 
+
+-- 주울 수동 매핑된 경로로 라우팅되는지 확인
+http://localhost:5555/evt/event/member/hyori
+
+-- `api` 프리픽스 붙인 후 라우팅 확인
+http://localhost:5555/api/evt/event/member/hyori
+
+```
+
+---
+ 
 - OAuth2, JWT (Security)
+
+---
+ 
 - Sleath, Papertrail, Zipkin (Logging Tracker)
+
+---
+
 - Travis CI (Build & Deploy)
+
+---
+
 - Spring Cloud Messaging (비동기 마이크로서비스 구성)
+
+---
+
 - Hystrix + Turbine (Circuit Breaker & Dashboard, 여러 대의 WAS 한번에 모니터링)
+
+---
 
 ## Server Diagram
 TO-DO...
+
+---
 
 ## How to run
 ```shell script
@@ -148,6 +207,8 @@ http://localhost:8080/actuator/
 http://localhost:8888/licensingservice/default
 
 ```
+
+---
 
 <br /><br /><br /><br />
 ![star--v1](https://user-images.githubusercontent.com/18479472/87845570-7a2bd800-c903-11ea-9b18-f624600a5ac7.png) thanks!
