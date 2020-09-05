@@ -21,11 +21,12 @@ public class EventController {
 
     @GetMapping(value = "name/{nick}")
     public String getYourName(@PathVariable("nick") String nick) {
-        try {
+        // 히스트릭트 타임아웃을 테스트하기 위함
+        /*try {
             Thread.sleep(4000);
         } catch(InterruptedException e) {
             e.printStackTrace();;
-        }
+        }*/
         return "[EVENT] Your name is " + customConfig.getYourName() + ", nickname is " + nick;
     }
 
