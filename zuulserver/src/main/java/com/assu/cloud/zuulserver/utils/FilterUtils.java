@@ -24,12 +24,10 @@ public class FilterUtils {
 
         if (ctx.getRequest().getHeader(CORRELATION_ID) != null) {
             // assu-correlation-id 가 이미 설정되어 있다면 해당값 리턴
-            logger.debug("이미 있음 {}:", ctx.getRequest().getHeader(CORRELATION_ID));
             return ctx.getRequest().getHeader(CORRELATION_ID);
         } else {
             // 헤더에 없다면 ZuulRequestHeaders 확인
             // 주울은 유입되는 요청에 직접 HTTP 요청 헤더를 추가하거나 수정하지 않음
-            logger.debug("없어서 생성함 {}:", ctx.getZuulRequestHeaders().get(CORRELATION_ID));
             return ctx.getZuulRequestHeaders().get(CORRELATION_ID);
         }
     }

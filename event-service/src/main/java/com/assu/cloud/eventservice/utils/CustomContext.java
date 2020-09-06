@@ -1,4 +1,4 @@
-package com.assu.cloud.common.utils;
+package com.assu.cloud.eventservice.utils;
 
 import org.springframework.stereotype.Component;
 

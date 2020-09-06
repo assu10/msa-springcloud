@@ -1,6 +1,6 @@
 package com.assu.cloud.memberservice;
 
-import com.assu.cloud.common.utils.CustomContextInterceptor;
+import com.assu.cloud.memberservice.utils.CustomContextInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;

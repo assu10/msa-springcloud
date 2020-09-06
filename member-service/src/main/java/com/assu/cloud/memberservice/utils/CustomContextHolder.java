@@ -1,4 +1,4 @@
-package com.assu.cloud.common.utils;
+package com.assu.cloud.memberservice.utils;
 
 import org.springframework.util.Assert;
 

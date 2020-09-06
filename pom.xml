@@ -22,7 +22,6 @@
     <module>event-service</module>
     <module>eurekaserver</module>
     <module>zuulserver</module>
-    <module>common</module>
   </modules>
 
   <build>

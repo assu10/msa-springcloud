@@ -1,4 +1,4 @@
-package com.assu.cloud.common.utils;
+package com.assu.cloud.memberservice.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,6 @@ public class CustomContextFilter implements Filter {
         // 그 외 필요한 항목 넣을 수 있음 (인증 토큰 등...)
 
         logger.debug("상관관계 ID {} 로 실행된 동적 라우팅", CustomContextHolder.getContext().getCorrelationId());
-        System.out.println("상관관계 ID 로 실행된 동적 라우팅" + CustomContextHolder.getContext().getCorrelationId());
 
         filterChain.doFilter(httpServletRequest, servletResponse);
     }
