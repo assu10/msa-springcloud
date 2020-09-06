@@ -1,6 +1,8 @@
 package com.assu.cloud.zuulserver.utils;
 
 import com.netflix.zuul.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +14,7 @@ public class FilterUtils {
     public static final String PRE_FILTER_TYPE = "pre";
     public static final String POST_FILTER_TYPE = "post";
     public static final String ROUTING_FILTER_TYPE = "route";
+    private static final Logger logger = LoggerFactory.getLogger(FilterUtils.class);
 
     /**
      * HTTP 헤더에서 assu-correlation-id 조회
@@ -21,12 +24,12 @@ public class FilterUtils {
 
         if (ctx.getRequest().getHeader(CORRELATION_ID) != null) {
             // assu-correlation-id 가 이미 설정되어 있다면 해당값 리턴
-            System.out.println("이미 있음 :" + ctx.getRequest().getHeader(CORRELATION_ID) + "++");
+            logger.debug("이미 있음 {}:", ctx.getRequest().getHeader(CORRELATION_ID));
             return ctx.getRequest().getHeader(CORRELATION_ID);
         } else {
             // 헤더에 없다면 ZuulRequestHeaders 확인
             // 주울은 유입되는 요청에 직접 HTTP 요청 헤더를 추가하거나 수정하지 않음
-            System.out.println("없어서 만듬 :" + ctx.getZuulRequestHeaders().get(CORRELATION_ID) + "++");
+            logger.debug("없어서 생성함 {}:", ctx.getZuulRequestHeaders().get(CORRELATION_ID));
             return ctx.getZuulRequestHeaders().get(CORRELATION_ID);
         }
     }
