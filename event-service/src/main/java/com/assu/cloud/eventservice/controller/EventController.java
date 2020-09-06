@@ -31,10 +31,18 @@ public class EventController {
     }
 
     /**
-     * 회원 서비스 REST API 호출
+     * Feign 을 이용하여 회원 서비스 REST API 호출
      */
     @GetMapping(value = "member/{nick}")
     public String getMemberName(@PathVariable("nick") String nick) {
         return memberFeignClient.getYourName(nick);
+    }
+
+    /**
+     * 회원 서비스에서 호출할 메서드
+     */
+    @GetMapping(value = "gift/{name}")
+    public String gift(@PathVariable("name") String gift) {
+        return "[EVENT] Gift is " + gift;
     }
 }
