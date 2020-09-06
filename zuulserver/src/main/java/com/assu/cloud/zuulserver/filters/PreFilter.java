@@ -60,6 +60,7 @@ public class PreFilter extends ZuulFilter {
      */
     private boolean isCorrelationIdPresent() {
         if (filterUtils.getCorrelationId() != null) {
+            logger.debug("++++++getCorrelationId:" + filterUtils.getCorrelationId() + "+++");
             return true;
         }
         return false;
