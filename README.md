@@ -141,7 +141,7 @@ http://localhost:5555/actuator/env
 -- 주울이 라우팅하고 있는 경로 확인
 http://localhost:5555/actuator/routes
 
--- 주울을 통해 이벤트 서비스의 REST API 호출
+-- 주울을 통해 이벤트 서비스의 REST API 호출 (feign)
 http://localhost:5555/event-service/event/member/assu
 
 -- 컨피그 저장소 설정값 변경 후 내용 전파
@@ -152,6 +152,9 @@ http://localhost:5555/evt/event/member/hyori
 
 -- `api` 프리픽스 붙인 후 라우팅 확인
 http://localhost:5555/api/evt/event/member/hyori
+
+-- 주울을 통해 회원 서비스의 REST API 호출 (RestTemplate)
+http://localhost:5555/api/mb/member/gift/flower
 
 ```
 
