@@ -18,18 +18,18 @@ import java.util.UUID;
 @Component
 public class PreFilter extends ZuulFilter {
 
-    private FilterUtils filterUtils;
-
-    public PreFilter(FilterUtils filterUtils) {
-        this.filterUtils = filterUtils;
-    }
-
     /** 해당 타입의 다른 필터와 비교해 실행되어야 하는 순서 */
     private static final int FILTER_ORDER = 1;
 
     /** 필터 활성화 여부 */
     private static final boolean SHOULD_FILTER = true;
     private static final Logger logger = LoggerFactory.getLogger(PreFilter.class);
+
+    private final FilterUtils filterUtils;
+
+    public PreFilter(FilterUtils filterUtils) {
+        this.filterUtils = filterUtils;
+    }
 
     /**
      * 구축하려는 필터의 타입 지정 (사전, 라우팅, 사후)
@@ -71,7 +71,7 @@ public class PreFilter extends ZuulFilter {
 
     /**
      * 필터의 비즈니스 로직 구현
-     *      서비스가 필터를 통과할때마다 실행되는 메서드
+     *      서비스가 필터를 통과할 때마다 실행되는 메서드
      *      상관관계 ID의 존재 여부 확인 후 없다면 생성하여 헤더에 설정
      */
     @Override

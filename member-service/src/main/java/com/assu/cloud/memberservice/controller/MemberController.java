@@ -13,8 +13,8 @@ import javax.servlet.ServletRequest;
 @RequestMapping("/member")
 public class MemberController {
 
-    private CustomConfig customConfig;
-    private EventRestTemplateClient eventRestTemplateClient;
+    private final CustomConfig customConfig;
+    private final EventRestTemplateClient eventRestTemplateClient;
 
     public MemberController(CustomConfig customConfig, EventRestTemplateClient eventRestTemplateClient) {
         this.customConfig = customConfig;

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/event")
 public class EventController {
 
-    private CustomConfig customConfig;
-    private MemberFeignClient memberFeignClient;
+    private final CustomConfig customConfig;
+    private final MemberFeignClient memberFeignClient;
 
     public EventController(CustomConfig customConfig, MemberFeignClient memberFeignClient) {
         this.customConfig = customConfig;

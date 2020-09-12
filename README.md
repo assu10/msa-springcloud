@@ -127,7 +127,7 @@ GET http://localhost:8070/event/member/hyori
 ---
 
 ***- Zuul (Proxy & API Gateway)***<br />
-자세한 설명은 [여기](https://assu10.github.io/dev/2020/08/26/netflix-zuul/) 를 참고
+자세한 설명은 [여기](https://assu10.github.io/dev/2020/08/26/netflix-zuul/)와 [여기](https://assu10.github.io/dev/2020/09/05/netflix-zuul2/) 를 참고
 
 ```shell script
 HOW TO RUN
@@ -155,6 +155,9 @@ http://localhost:5555/api/evt/event/member/hyori
 
 -- 주울을 통해 회원 서비스의 REST API 호출 (RestTemplate)
 http://localhost:5555/api/mb/member/gift/flower
+
+-- 사전/사후 필터 동작 확인 (상관관계 ID 생성 및 하위 서비스에 전파/응답 헤더에 상관관계 ID 삽입)
+http://localhost:5555/api/mb/member/name/hyori
 
 ```
 
