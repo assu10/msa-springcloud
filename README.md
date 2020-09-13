@@ -164,7 +164,17 @@ http://localhost:5555/api/mb/member/name/hyori
 ---
  
 ***- OAuth2, JWT (Security)***<br />
+자세한 설명은 [여기](https://assu10.github.io/dev/2020/09/12/spring-cloud-oauth2.0/) 를 참고
 
+```shell script
+HOW TO RUN
+
+-- 액세스 토큰 획득
+[POST] http://localhost:8901/auth/oauth/token
+
+-- 액세스 토큰으로 사용자 정보 조회
+[GET] http://localhost:8901/auth/user 
+```
 ---
  
 ***- Sleath, Papertrail, Zipkin (Logging Tracker)***<br />
