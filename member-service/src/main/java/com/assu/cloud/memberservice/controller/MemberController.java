@@ -2,10 +2,8 @@ package com.assu.cloud.memberservice.controller;
 
 import com.assu.cloud.memberservice.client.EventRestTemplateClient;
 import com.assu.cloud.memberservice.config.CustomConfig;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletRequest;
 
@@ -32,5 +30,14 @@ public class MemberController {
     @GetMapping(value = "gift/{name}")
     public String gift(ServletRequest req, @PathVariable("name") String name) {
         return "[MEMBER] " + eventRestTemplateClient.gift(name) + " / port is " + req.getServerPort();
+    }
+
+    /**
+     * ADMIN 권한 소유자만 PUT METHOD API 호출 가능하도록 설정 후 테스트
+     */
+    @PutMapping("{name}")
+    //@ResponseStatus(HttpStatus.NO_CONTENT)
+    public String member(@PathVariable("name") String name) {
+        return "[MEMBER-DELETE] " + name + " is deleted.";
     }
 }
