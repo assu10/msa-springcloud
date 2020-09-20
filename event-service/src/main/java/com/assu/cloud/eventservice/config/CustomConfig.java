@@ -10,7 +10,14 @@ public class CustomConfig {
     @Value("${your.name}")
     private String yourName;
 
+    @Value("${service.id.zuul}")
+    private String serviceIdZuul;
+
     public String getYourName() {
         return yourName;
+    }
+
+    public String getServiceIdZuul() {
+        return serviceIdZuul;
     }
 }

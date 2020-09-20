@@ -9,8 +9,8 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class EventRestTemplateClient {
 
-    RestTemplate restTemplate;
-    CustomConfig customConfig;
+    private final RestTemplate restTemplate;
+    private final CustomConfig customConfig;
 
     public EventRestTemplateClient(RestTemplate restTemplate, CustomConfig customConfig) {
         this.restTemplate = restTemplate;

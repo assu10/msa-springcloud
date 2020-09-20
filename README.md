@@ -174,6 +174,15 @@ HOW TO RUN
 
 -- 액세스 토큰으로 사용자 정보 조회
 [GET] http://localhost:8901/auth/user 
+
+-- OAuth2 로 회원 서비스 보호 후 API 호출
+[GET] http://localhost:8090/member/name/rinda
+
+-- 권한 있는 사용자(assuAdmin) 의 액세스 토큰과 함께 PUT 메서드 API 호출
+[PUT] http://localhost:8090/member/rinda
+
+-- oauth2 전파 (이벤트 서비스에서 회원서비스 호출)
+[GET] http://localhost:5555/api/evt/event/userInfo/rinda
 ```
 ---
  

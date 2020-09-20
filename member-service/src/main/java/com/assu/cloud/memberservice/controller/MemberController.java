@@ -40,4 +40,12 @@ public class MemberController {
     public String member(@PathVariable("name") String name) {
         return "[MEMBER-DELETE] " + name + " is deleted.";
     }
+
+    /**
+     * 이벤트 서비스에서 OAuth2 로 호출 테스트
+     */
+    @GetMapping("userInfo/{name}")
+    public String userInfo(@PathVariable("name") String name) {
+        return "[MEMBER] " + name;
+    }
 }

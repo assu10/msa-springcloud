@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 public class CustomContext {
     public static final String CORRELATION_ID = "assu-correlation-id";
 
-    private String correlationId = new String();
+    private static final ThreadLocal<String> correlationId = new ThreadLocal<>();
 
     // 그 외 필요한 항목 넣을 수 있음 (인증 토큰 등...)
 
-    public String getCorrelationId() {
-        return correlationId;
+    public static String getCorrelationId() {
+        return correlationId.get();
     }
 
-    public void setCorrelationId(String correlationId) {
-        this.correlationId = correlationId;
+    public static void setCorrelationId(String cid) {
+        correlationId.set(cid);
     }
 }

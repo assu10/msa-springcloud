@@ -1,5 +1,6 @@
 package com.assu.cloud.eventservice.controller;
 
+import com.assu.cloud.eventservice.client.MemberRestTemplateClient;
 import com.assu.cloud.eventservice.client.MemberFeignClient;
 import com.assu.cloud.eventservice.config.CustomConfig;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +14,12 @@ public class EventController {
 
     private final CustomConfig customConfig;
     private final MemberFeignClient memberFeignClient;
+    private final MemberRestTemplateClient memberRestTemplateClient;
 
-    public EventController(CustomConfig customConfig, MemberFeignClient memberFeignClient) {
+    public EventController(CustomConfig customConfig, MemberFeignClient memberFeignClient, MemberRestTemplateClient memberRestTemplateClient) {
         this.customConfig = customConfig;
         this.memberFeignClient = memberFeignClient;
+        this.memberRestTemplateClient = memberRestTemplateClient;
     }
 
     @GetMapping(value = "name/{nick}")
@@ -44,5 +47,10 @@ public class EventController {
     @GetMapping(value = "gift/{name}")
     public String gift(@PathVariable("name") String gift) {
         return "[EVENT] Gift is " + gift;
+    }
+
+    @GetMapping("userInfo/{name}")
+    public String userInfo(@PathVariable("name") String name) {
+        return "[EVENT-MEMBER] " + memberRestTemplateClient.userInfo(name);
     }
 }
