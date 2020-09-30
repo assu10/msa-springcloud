@@ -183,6 +183,9 @@ HOW TO RUN
 
 -- oauth2 전파 (이벤트 서비스에서 회원서비스 호출)
 [GET] http://localhost:5555/api/evt/event/userInfo/rinda
+
+-- JWT 인증 서버 설정 후 액세스 토큰 획득
+[POST] http://localhost:8901/auth/oauth/token
 ```
 ---
  
