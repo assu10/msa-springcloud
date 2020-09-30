@@ -25,13 +25,13 @@ public class AuthServiceApplication {
      *      보호 서비스로 호출되어 OAuth2 액세스 토큰의 유효성을 검증하고 보호 서비스에 접근하는 사용자 역할 조회
      */
     //@RequestMapping(value = { "/user" }, produces = "application/json")     // /auth/user 로 매핑
-    @RequestMapping(value = "/user")     // /auth/user 로 매핑
+    /*@RequestMapping(value = "/user")     // /auth/user 로 매핑
     public Map<String, Object> user(OAuth2Authentication user) {
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("user", user.getUserAuthentication().getPrincipal());
         userInfo.put("authorities", AuthorityUtils.authorityListToSet(user.getUserAuthentication().getAuthorities()));
         return userInfo;
-    }
+    }*/
     public static void main(String[] args) {
         SpringApplication.run(AuthServiceApplication.class, args);
     }
