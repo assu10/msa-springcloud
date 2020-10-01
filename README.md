@@ -127,7 +127,8 @@ GET http://localhost:8070/event/member/hyori
 ---
 
 ***- Zuul (Proxy & API Gateway)***<br />
-자세한 설명은 [여기](https://assu10.github.io/dev/2020/08/26/netflix-zuul/)와 [여기](https://assu10.github.io/dev/2020/09/05/netflix-zuul2/) 를 참고
+자세한 설명은 [여기](https://assu10.github.io/dev/2020/08/26/netflix-zuul/)와 
+[여기](https://assu10.github.io/dev/2020/09/05/netflix-zuul2/) 를 참고
 
 ```shell script
 HOW TO RUN
@@ -164,7 +165,8 @@ http://localhost:5555/api/mb/member/name/hyori
 ---
  
 ***- OAuth2, JWT (Security)***<br />
-자세한 설명은 [여기](https://assu10.github.io/dev/2020/09/12/spring-cloud-oauth2.0/) 를 참고
+자세한 설명은 [여기](https://assu10.github.io/dev/2020/09/12/spring-cloud-oauth2.0/) dhk
+[Spring Cloud - OAuth2, Security(2/2)](http://localhost:4000/dev/2020/09/30/spring-cloud-oauth2.0-2/)를 참고
 
 ```shell script
 HOW TO RUN
@@ -186,6 +188,9 @@ HOW TO RUN
 
 -- JWT 인증 서버 설정 후 액세스 토큰 획득
 [POST] http://localhost:8901/auth/oauth/token
+
+-- JWT 토큰 획득 후 인증 확인
+[GET] http://localhost:8090/member/gift/manok
 ```
 ---
  
