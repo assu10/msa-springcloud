@@ -2,14 +2,14 @@
 
 ## Development Environment
 `Windows 10` `JDK 11.0.6` `SpringBoot 2.3.2.RELEASE` `Maven 3.6.3` `Git 2.22.0.windows.1` `intellij`
-[`Spring Cloud Hoxton.SR6`](https://spring.io/projects/spring-cloud) [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
+[`Spring Cloud Hoxton.SR6`](https://spring.io/projects/spring-cloud) 에서 SR8 로 업그레이드 [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
 [`Erlang/OTP 23.0`](https://www.erlang.org/downloads)
 
  
 
 ## Table of Contents
 ***- Config Server (환경설정 외부화)<br />***
-자세한 설명은 [여기](https://bravenamme.github.io/2020/08/16/spring-cloud-config-server/) 를 참고
+자세한 설명은 [Spring Cloud - Spring Cloud Config Server](https://assu10.github.io/dev/2020/08/16/spring-cloud-config-server/) 를 참고
 > [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) <br />
 > [AMQP doc](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/htmlsingle/#boot-features-amqp) <br />
 > [JCE jar download](https://www.oracle.com/java/technologies/javase-jce-all-downloads.html)
@@ -59,16 +59,12 @@ POST http://localhost:8889/decrypt
 ---
 
 ***- Feign (REST Client & Circuit Breaker)***<br />
-자세한 설명은 [여기](https://assu10.github.io/dev/2020/06/18/spring-cloud-feign/) 를 참고
-
----
-
-***- Ribbon (Load Balancer)***<br />
+자세한 설명은 [Spring Cloud - Spring Cloud Feign](https://assu10.github.io/dev/2020/06/18/spring-cloud-feign/) 를 참고
 
 ---
 
 ***- Eureka (Service Registry & Discovery)***<br />
-자세한 설명은 [여기](https://bravenamme.github.io/2020/08/26/spring-cloud-eureka/) 를 참고
+자세한 설명은 [Spring Cloud - Spring Cloud Eureka](https://assu10.github.io/dev/2020/08/26/spring-cloud-eureka/) 를 참고
 
 ```shell script
 HOW TO RUN
@@ -127,8 +123,8 @@ GET http://localhost:8070/event/member/hyori
 ---
 
 ***- Zuul (Proxy & API Gateway)***<br />
-자세한 설명은 [여기](https://assu10.github.io/dev/2020/08/26/netflix-zuul/)와 
-[여기](https://assu10.github.io/dev/2020/09/05/netflix-zuul2/) 를 참고
+자세한 설명은 [Spring Cloud - Netflix Zuul(1/2)](https://assu10.github.io/dev/2020/08/26/netflix-zuul/)와 
+[Spring Cloud - Netflix Zuul(2/2)](https://assu10.github.io/dev/2020/09/05/netflix-zuul2/) 를 참고
 
 ```shell script
 HOW TO RUN
@@ -165,8 +161,8 @@ http://localhost:5555/api/mb/member/name/hyori
 ---
  
 ***- OAuth2, JWT (Security)***<br />
-자세한 설명은 [여기](https://assu10.github.io/dev/2020/09/12/spring-cloud-oauth2.0/) dhk
-[Spring Cloud - OAuth2, Security(2/2)](http://localhost:4000/dev/2020/09/30/spring-cloud-oauth2.0-2/)를 참고
+자세한 설명은 [Spring Cloud - OAuth2, Security(1/2)](https://assu10.github.io/dev/2020/09/12/spring-cloud-oauth2.0/) 와
+[Spring Cloud - OAuth2, Security(2/2)](https://assu10.github.io/dev/2020/09/30/spring-cloud-oauth2.0-2/)를 참고
 
 ```shell script
 HOW TO RUN
@@ -193,16 +189,16 @@ HOW TO RUN
 [GET] http://localhost:8090/member/gift/manok
 ```
 ---
+
+***- Spring Cloud Messaging (비동기 마이크로서비스 구성)***<br />
+
+---
  
 ***- Sleath, Papertrail, Zipkin (Logging Tracker)***<br />
 
 ---
 
 ***- Travis CI (Build & Deploy)***<br />
-
----
-
-***- Spring Cloud Messaging (비동기 마이크로서비스 구성)***<br />
 
 ---
 
