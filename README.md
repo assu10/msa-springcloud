@@ -203,7 +203,7 @@ HOW TO RUN
 ```
 ---
 
-***- Spring Cloud Messaging (비동기 마이크로서비스 구성)***<br />
+***- Spring Cloud Stream (EDA, 비동기 마이크로서비스 구성)***<br />
 
 ---
  
