@@ -8,6 +8,19 @@
  
 
 ## Table of Contents
+
+- Config Server (환경설정 외부화)
+- Feign (REST Client & Circuit Breaker)
+- Eureka (Service Registry & Discovery)
+- Zuul (Proxy & API Gateway)
+- OAuth2, JWT (Security)
+- Spring Cloud Stream (EDA, 비동기 마이크로서비스 구성)
+- Sleath, Papertrail, Zipkin (Logging Tracker)
+- Travis CI (Build & Deploy)
+- Hystrix + Turbine (Circuit Breaker & Dashboard, 여러 대의 WAS 한번에 모니터링)
+
+---
+
 ***- Config Server (환경설정 외부화)<br />***
 자세한 설명은 [Spring Cloud - Spring Cloud Config Server](https://assu10.github.io/dev/2020/08/16/spring-cloud-config-server/) 를 참고
 > [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/) <br />
