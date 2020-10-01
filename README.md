@@ -9,11 +9,11 @@
 
 ## Table of Contents
 
-- Config Server (환경설정 외부화)
-- Feign (REST Client & Circuit Breaker)
-- Eureka (Service Registry & Discovery)
-- Zuul (Proxy & API Gateway)
-- OAuth2, JWT (Security)
+- ~~Config Server (환경설정 외부화)~~
+- ~~Feign (REST Client & Circuit Breaker)~~
+- ~~Eureka (Service Registry & Discovery)~~
+- ~~Zuul (Proxy & API Gateway)~~
+- ~~OAuth2, JWT (Security)~~
 - Spring Cloud Stream (EDA, 비동기 마이크로서비스 구성)
 - Sleath, Papertrail, Zipkin (Logging Tracker)
 - Travis CI (Build & Deploy)
