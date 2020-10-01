@@ -2,7 +2,7 @@
 
 ## Development Environment
 `Windows 10` `JDK 11.0.6` `SpringBoot 2.3.2.RELEASE` `Maven 3.6.3` `Git 2.22.0.windows.1` `intellij`
-[`Spring Cloud Hoxton.SR6`](https://spring.io/projects/spring-cloud) 에서 SR8 로 업그레이드 [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
+[`Spring Cloud Hoxton.SR6`](https://spring.io/projects/spring-cloud) 에서 `SR8` 로 업그레이드 [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
 [`Erlang/OTP 23.0`](https://www.erlang.org/downloads)
 
  
