@@ -16,6 +16,7 @@
 - ~~OAuth2, JWT (Security)~~
 - Spring Cloud Stream (EDA, 비동기 마이크로서비스 구성)
 - Sleath, Papertrail, Zipkin (Logging Tracker)
+- Eureka Peering
 - Travis CI (Build & Deploy)
 - Hystrix + Turbine (Circuit Breaker & Dashboard, 여러 대의 WAS 한번에 모니터링)
 
