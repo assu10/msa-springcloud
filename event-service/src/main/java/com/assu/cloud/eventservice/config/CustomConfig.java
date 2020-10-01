@@ -13,11 +13,18 @@ public class CustomConfig {
     @Value("${service.id.zuul}")
     private String serviceIdZuul;
 
+    @Value("${signing.key}")
+    private String jwtSigningKey = "";
+
     public String getYourName() {
         return yourName;
     }
 
     public String getServiceIdZuul() {
         return serviceIdZuul;
+    }
+
+    public String getJwtSigningKey() {
+        return jwtSigningKey;
     }
 }

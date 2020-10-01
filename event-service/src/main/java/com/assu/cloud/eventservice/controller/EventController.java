@@ -49,8 +49,8 @@ public class EventController {
         return "[EVENT] Gift is " + gift;
     }
 
-    @GetMapping("userInfo/{name}")
+    /*@GetMapping("userInfo/{name}")
     public String userInfo(@PathVariable("name") String name) {
         return "[EVENT-MEMBER] " + memberRestTemplateClient.userInfo(name);
-    }
+    }*/
 }

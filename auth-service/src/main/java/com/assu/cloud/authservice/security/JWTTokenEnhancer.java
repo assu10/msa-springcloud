@@ -1,6 +1,5 @@
 package com.assu.cloud.authservice.security;
 
-import com.assu.cloud.authservice.config.CustomConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -28,6 +27,7 @@ public class JWTTokenEnhancer implements TokenEnhancer {
 
         additionalInfo.put("userId", userId);
 
+        // 모든 추가 속성은 HashMap 에 추가하고, 메서드에 전달된 accessToken 변수에 추가
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
         return accessToken;
     }

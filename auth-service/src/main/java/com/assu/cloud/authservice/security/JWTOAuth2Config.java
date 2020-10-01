@@ -49,12 +49,13 @@ public class JWTOAuth2Config extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        // 스프링 OAuth 의 TokenEnhancerChain 를 등록하면 여러 TokenEnhancer 후킹 가능
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(Arrays.asList(jwtTokenEnhancer, jwtAccessTokenConverter));
 
         endpoints.tokenStore(tokenStore)                             // JWT, JWTTokenStoreConfig 에서 정의한 토큰 저장소
                 .accessTokenConverter(jwtAccessTokenConverter)       // JWT, 스프링 시큐리티 OAuth2 가 JWT 사용하도록 연결
-                .tokenEnhancer(tokenEnhancerChain)                   // JWT
+                .tokenEnhancer(tokenEnhancerChain)                   // JWT, endpoints 에 tokenEnhancerChain 연결
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
     }

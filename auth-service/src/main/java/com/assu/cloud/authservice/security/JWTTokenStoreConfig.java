@@ -52,6 +52,11 @@ public class JWTTokenStoreConfig {
         return converter;
     }
 
+    /**
+     * OAuth2 에 JWT 토큰 확장 클래스인 JWTTokenEnhancer 클래스를 사용한다고 알리기 위해 빈으로 노출
+     * 여기서 노출하면 JWTOAuth2Config 에서 사용 가능
+     * @return
+     */
     @Bean
     public TokenEnhancer jwtTokenEnhancer() {
         return new JWTTokenEnhancer();

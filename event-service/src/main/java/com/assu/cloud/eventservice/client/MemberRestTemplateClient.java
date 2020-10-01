@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MemberRestTemplateClient {
 
-    private final OAuth2RestTemplate restTemplate;
+    /*private final OAuth2RestTemplate restTemplate;
     private final CustomConfig customConfig;
 
     public MemberRestTemplateClient(OAuth2RestTemplate restTemplate, CustomConfig customConfig) {
@@ -36,5 +36,5 @@ public class MemberRestTemplateClient {
                 );
 
         return restExchange.getBody();
-    }
+    }*/
 }
