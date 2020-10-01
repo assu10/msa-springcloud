@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,6 +21,29 @@ public class MemberServiceApplication {
         SpringApplication.run(MemberServiceApplication.class, args);
     }
 
+    /**
+     * 사용자 정의 RestTemplate 빈을 생성하여 토큰 삽입
+     * RestTemplate 기반 호출이 수행되기 전 후킹되는 메서드
+     */
+    @Primary
+    @LoadBalanced
+    @Bean
+    public RestTemplate getCustomRestTemplate() {
+        RestTemplate template = new RestTemplate();
+        List interceptors = template.getInterceptors();
+
+        // CustomContextInterceptor 는 Authorization 헤더를 모든 REST 호출에 삽입함
+        if (interceptors == null) {
+            template.setInterceptors(Collections.singletonList(new CustomContextInterceptor()));
+        } else {
+            interceptors.add(new CustomContextInterceptor());
+            template.setInterceptors(interceptors);
+        }
+        return template;
+    }
+
+    /*
+    // 기본 RestTemplate
     @LoadBalanced       // 스프링 클라우드가 리본이 지원하는 RestTemplate 클래스 생성하도록 지시
     @Bean
     public RestTemplate getRestTemplate() {
@@ -34,5 +58,5 @@ public class MemberServiceApplication {
             template.setInterceptors(interceptors);
         }
         return template;
-    }
+    }*/
 }

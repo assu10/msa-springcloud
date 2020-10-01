@@ -9,7 +9,7 @@ import org.springframework.http.client.ClientHttpResponse;
 import java.io.IOException;
 
 /**
- * RestTemplate 인스턴스에서 실행되는 모든 HTTP 기반 서비스 발신 요청에 상관관계 ID 삽입
+ * RestTemplate 인스턴스에서 실행되는 모든 HTTP 기반 서비스 발신 요청에 상관관계 ID 삽입 + 토큰
  */
 public class CustomContextInterceptor implements ClientHttpRequestInterceptor {
     /**
@@ -20,7 +20,9 @@ public class CustomContextInterceptor implements ClientHttpRequestInterceptor {
         HttpHeaders headers = httpRequest.getHeaders();
 
         headers.add(CustomContext.CORRELATION_ID, CustomContextHolder.getContext().getCorrelationId());
+
         // 그 외 필요한 항목 넣을 수 있음 (인증 토큰 등...)
+        headers.add(CustomContext.AUTH_TOKEN, CustomContextHolder.getContext().getAuthToken());     // HTTP 헤더에 인증 토큰 추가
 
         return clientHttpRequestExecution.execute(httpRequest, bytes);
     }

@@ -27,7 +27,7 @@ public class CustomContextHolder {
     }
 
     public static final void setContext(CustomContext ctx) {
-        Assert.notNull(ctx, "customcontxt is null.");
+        Assert.notNull(ctx, "CustomContext is null.");
         customContext.set(ctx);
     }
 

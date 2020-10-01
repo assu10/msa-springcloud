@@ -1,6 +1,6 @@
-package com.assu.cloud.eventservice.security;
+package com.assu.cloud.memberservice.security;
 
-import com.assu.cloud.eventservice.config.CustomConfig;
+import com.assu.cloud.memberservice.config.CustomConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
