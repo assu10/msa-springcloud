@@ -14,6 +14,9 @@ public class FilterUtils {
     public static final String PRE_FILTER_TYPE = "pre";
     public static final String POST_FILTER_TYPE = "post";
     public static final String ROUTING_FILTER_TYPE = "route";
+
+    public static final String AUTH_TOKEN = "Authorization";
+
     private static final Logger logger = LoggerFactory.getLogger(FilterUtils.class);
 
     /**
@@ -43,5 +46,10 @@ public class FilterUtils {
     public void setCorrelationId(String correlationId) {
         RequestContext ctx = RequestContext.getCurrentContext();
         ctx.addZuulRequestHeader(CORRELATION_ID, correlationId);
+    }
+
+    public final String getAuthToken() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        return ctx.getRequest().getHeader(AUTH_TOKEN);
     }
 }

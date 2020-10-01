@@ -1,12 +1,13 @@
 package com.assu.cloud.zuulserver.filters;
 
+import com.assu.cloud.zuulserver.config.CustomConfig;
 import com.assu.cloud.zuulserver.utils.FilterUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
 import java.util.UUID;
 
 /**
@@ -26,9 +27,11 @@ public class PreFilter extends ZuulFilter {
     private static final Logger logger = LoggerFactory.getLogger(PreFilter.class);
 
     private final FilterUtils filterUtils;
+    private final CustomConfig customConfig;
 
-    public PreFilter(FilterUtils filterUtils) {
+    public PreFilter(FilterUtils filterUtils, CustomConfig customConfig) {
         this.filterUtils = filterUtils;
+        this.customConfig = customConfig;
     }
 
     /**
@@ -88,6 +91,38 @@ public class PreFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         logger.debug("============ Processing incoming request for {}.",  ctx.getRequest().getRequestURI());
 
+        logger.info("============ user id is {}.",  getUserId());
         return null;
+    }
+
+    private String getUserId() {
+        String result = "";
+        if (filterUtils.getAuthToken() != null) {
+            // HTTP Authorization 헤더에서 토큰 파싱
+            String authToken = filterUtils.getAuthToken().replace("Bearer ", "");
+            try {
+                // 토큰 서명에 사용된 서명 키를 전달해서 Jwts 클래스를 사용해 토큰 파싱
+                Claims claims = Jwts.parser()
+                        .setSigningKey(customConfig.getJwtSigningKey().getBytes("UTF-8"))
+                        .parseClaimsJws(authToken).getBody();
+                // JWT 토큰에서 userId 가져옴 (userId 는 인증 서버의 JWTTokenEnhancer 에서 추가했음)
+                result = (String) claims.get("userId");
+                // {user_name=assuAdmin, scope=[mobileclient], exp=1601582137, userId=12345, authorities=[ROLE_ADMIN, ROLE_USER], jti=595aa7f9-7887-4263-85b1-20aa3555ffd2, client_id=assuapp}
+                logger.info("claims: {}", claims);
+            } catch (SignatureException e) {
+                logger.error("Invalid JWT signature: {}", e.getMessage());
+            } catch (MalformedJwtException e) {
+                logger.error("Invalid JWT token: {}", e.getMessage());
+            } catch (ExpiredJwtException e) {
+                logger.error("JWT token is expired: {}", e.getMessage());
+            } catch (UnsupportedJwtException e) {
+                logger.error("JWT token is unsupported: {}", e.getMessage());
+            } catch (IllegalArgumentException e) {
+                logger.error("JWT claims string is empty: {}", e.getMessage());
+            } catch (Exception e) {
+                logger.error("Exception : {}", e.getMessage());
+            }
+        }
+        return result;
     }
 }
