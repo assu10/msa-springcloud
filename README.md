@@ -3,7 +3,7 @@
 ## Development Environment
 `Windows 10` `JDK 11.0.6` `SpringBoot 2.3.2.RELEASE` `Maven 3.6.3` `Git 2.22.0.windows.1` `intellij`
 [`Spring Cloud Hoxton.SR6`](https://spring.io/projects/spring-cloud) 에서 `SR8` 로 업그레이드 [`RabbitMQ 3.8.6`](https://www.rabbitmq.com/download.html)
-[`Erlang/OTP 23.0`](https://www.erlang.org/downloads)
+[`Erlang/OTP 23.0`](https://www.erlang.org/downloads) [kafka_2.13-2.6.0](https://kafka.apache.org/downloads)
 
  
 
@@ -205,6 +205,23 @@ HOW TO RUN
 ---
 
 ***- Spring Cloud Stream (EDA, 비동기 마이크로서비스 구성)***<br />
+
+```shell script
+HOW TO RUN
+
+--  주키퍼 실행
+C:\kafka_2.13-2.6.0\bin\windows>.\zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+-- 카프카 실행
+C:\kafka_2.13-2.6.0\bin\windows>.\kafka-server-start.bat ..\..\config\server.properties
+
+-- 카프카 토픽 리스트 조회
+C:\kafka_2.13-2.6.0\bin\windows>.\kafka-topics.bat --list --zookeeper localhost:2181
+__consumer_offsets
+mbChangeTopic
+springCloudBus
+```
+
 
 ---
  
