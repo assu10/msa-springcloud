@@ -14,7 +14,13 @@ public class CustomConfig {
     private String serviceIdZuul;
 
     @Value("${signing.key}")
-    private String jwtSigningKey = "";
+    private String jwtSigningKey;
+
+    @Value("${redis.server}")
+    private String redisServer;
+
+    @Value("${redis.port}")
+    private int redisPort;
 
     public String getYourName() {
         return yourName;
@@ -26,5 +32,13 @@ public class CustomConfig {
 
     public String getJwtSigningKey() {
         return jwtSigningKey;
+    }
+
+    public String getRedisServer() {
+        return redisServer;
+    }
+
+    public int getRedisPort() {
+        return redisPort;
     }
 }

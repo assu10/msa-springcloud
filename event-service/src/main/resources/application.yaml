@@ -13,3 +13,7 @@ spring:
         binder:
           zkNodes: localhost    # zkNodes, brokers 는 스트림에게 카프카와 주키퍼의 네트워크 위치 전달
           brokers: localhost
+#redis
+redis:
+  server: redis
+  port: 6379
