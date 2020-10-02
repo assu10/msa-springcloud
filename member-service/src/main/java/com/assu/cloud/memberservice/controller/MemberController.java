@@ -2,7 +2,7 @@ package com.assu.cloud.memberservice.controller;
 
 import com.assu.cloud.memberservice.client.EventRestTemplateClient;
 import com.assu.cloud.memberservice.config.CustomConfig;
-import org.springframework.http.HttpStatus;
+import com.assu.cloud.memberservice.event.source.SimpleSourceBean;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletRequest;
@@ -13,10 +13,12 @@ public class MemberController {
 
     private final CustomConfig customConfig;
     private final EventRestTemplateClient eventRestTemplateClient;
+    private final SimpleSourceBean simpleSourceBean;
 
-    public MemberController(CustomConfig customConfig, EventRestTemplateClient eventRestTemplateClient) {
+    public MemberController(CustomConfig customConfig, EventRestTemplateClient eventRestTemplateClient, SimpleSourceBean simpleSourceBean) {
         this.customConfig = customConfig;
         this.eventRestTemplateClient = eventRestTemplateClient;
+        this.simpleSourceBean = simpleSourceBean;
     }
 
     @GetMapping(value = "name/{nick}")
@@ -48,4 +50,14 @@ public class MemberController {
     public String userInfo(@PathVariable("name") String name) {
         return "[MEMBER] " + name;
     }
+
+    /**
+     * 단순 메시지 발행
+     */
+    @PostMapping("/{userId}")
+    public void saveUserId(@PathVariable("userId") String userId) {
+        // DB 에 save 작업..
+        simpleSourceBean.publishMemberChange("SAVE", userId);
+    }
+
 }
