@@ -226,6 +226,34 @@ springCloudBus
 -- 메시지 발행/수신 확인
 [POST] http://localhost:8090/member/assu
 
+-- 레디스 설치확인
+C:\Users\ju>netstat -an|findstr 6379
+  TCP    127.0.0.1:6379         0.0.0.0:0              LISTENING
+C:\Users\ju>redis-cli
+127.0.0.1:6379> ping
+PONG
+127.0.0.1:6379> set key value
+OK
+127.0.0.1:6379> get key
+"value"
+127.0.0.1:6379>
+
+-- 레디스 실행
+redis-server.bat 실행
+
+-- 모든 키 확인
+127.0.0.1:6379> keys *
+1) "member"
+
+-- key-value 확인 (get 은 String 만 다루므로 여기선 에러로 표시)
+127.0.0.1:6379> get member
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+
+-- 모든 키 삭제
+127.0.0.1:6379> flushall
+OK
+
+
 ```
 
 

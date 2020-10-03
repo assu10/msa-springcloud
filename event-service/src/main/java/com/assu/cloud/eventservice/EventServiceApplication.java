@@ -67,7 +67,6 @@ public class EventServiceApplication {
 
     /**
      * 레디스 서버에 작업 수행 시 사용할 RedisTemplate 객체 생성
-     * @return
      */
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {

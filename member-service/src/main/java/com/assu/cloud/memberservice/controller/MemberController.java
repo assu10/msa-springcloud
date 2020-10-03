@@ -3,6 +3,9 @@ package com.assu.cloud.memberservice.controller;
 import com.assu.cloud.memberservice.client.EventRestTemplateClient;
 import com.assu.cloud.memberservice.config.CustomConfig;
 import com.assu.cloud.memberservice.event.source.SimpleSourceBean;
+import com.assu.cloud.memberservice.model.Member;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletRequest;
@@ -10,6 +13,8 @@ import javax.servlet.ServletRequest;
 @RestController
 @RequestMapping("/member")
 public class MemberController {
+
+    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
     private final CustomConfig customConfig;
     private final EventRestTemplateClient eventRestTemplateClient;
@@ -60,4 +65,17 @@ public class MemberController {
         simpleSourceBean.publishMemberChange("SAVE", userId);
     }
 
+    /**
+     * 이벤트 서비스에서 캐시 용도로 회원 데이터 조회
+     */
+    @GetMapping("{userId}")
+    public Member userInfoCache(@PathVariable("userId") String userId) {
+        logger.debug("====== 회원 서비스 호출!");
+
+        // DB 를 조회하여 회원 데이터 조회 (간편성을 위해 아래와 같이 리턴함)
+        Member member = new Member();
+        member.setId(userId);
+        member.setName("rinda");
+        return member;
+    }
 }

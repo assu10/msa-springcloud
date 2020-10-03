@@ -1,8 +1,10 @@
 package com.assu.cloud.eventservice.controller;
 
+import com.assu.cloud.eventservice.client.MemberCacheRestTemplateClient;
 import com.assu.cloud.eventservice.client.MemberRestTemplateClient;
 import com.assu.cloud.eventservice.client.MemberFeignClient;
 import com.assu.cloud.eventservice.config.CustomConfig;
+import com.assu.cloud.eventservice.model.Member;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +17,14 @@ public class EventController {
     private final CustomConfig customConfig;
     private final MemberFeignClient memberFeignClient;
     private final MemberRestTemplateClient memberRestTemplateClient;
+    private final MemberCacheRestTemplateClient memberCacheRestTemplateClient;
 
-    public EventController(CustomConfig customConfig, MemberFeignClient memberFeignClient, MemberRestTemplateClient memberRestTemplateClient) {
+    public EventController(CustomConfig customConfig, MemberFeignClient memberFeignClient, MemberRestTemplateClient memberRestTemplateClient,
+                           MemberCacheRestTemplateClient memberCacheRestTemplateClient) {
         this.customConfig = customConfig;
         this.memberFeignClient = memberFeignClient;
         this.memberRestTemplateClient = memberRestTemplateClient;
+        this.memberCacheRestTemplateClient = memberCacheRestTemplateClient;
     }
 
     @GetMapping(value = "name/{nick}")
@@ -47,6 +52,14 @@ public class EventController {
     @GetMapping(value = "gift/{name}")
     public String gift(@PathVariable("name") String gift) {
         return "[EVENT] Gift is " + gift;
+    }
+
+    /**
+     * 레디스 캐싱 데이터 사용
+     */
+    @GetMapping(value = "{userId}")
+    public Member userInfo(@PathVariable("userId") String userId) {
+        return memberCacheRestTemplateClient.getMember(userId);
     }
 
     /*@GetMapping("userInfo/{name}")
