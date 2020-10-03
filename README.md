@@ -206,7 +206,8 @@ HOW TO RUN
 
 ***- Spring Cloud Stream (EDA, 비동기 마이크로서비스 구성)***<br />
 
-자세한 설명은 [Spring Cloud - Stream, 분산 캐싱 (1/2)](https://assu10.github.io/dev/2020/10/01/spring-cloud-stream/) 를 참고
+자세한 설명은 [Spring Cloud - Stream, 분산 캐싱 (1/2)](https://assu10.github.io/dev/2020/10/01/spring-cloud-stream/) 와
+[Spring Cloud - Stream, 분산 캐싱 (2/2)](https://assu10.github.io/dev/2020/10/02/spring-cloud-stream-2/) 를 참고
 
 ```shell script
 HOW TO RUN
@@ -253,7 +254,12 @@ redis-server.bat 실행
 127.0.0.1:6379> flushall
 OK
 
+-- 레디스 캐싱 데이터 무효화
+[GET] http://localhost:8070/event/1234
 
+[DELETE] http://localhost:8090/member/userInfo/1234
+
+[GET] http://localhost:8070/event/1234
 ```
 
 
