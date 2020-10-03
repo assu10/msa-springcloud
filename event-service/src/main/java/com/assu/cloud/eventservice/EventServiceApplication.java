@@ -1,7 +1,6 @@
 package com.assu.cloud.eventservice;
 
 import com.assu.cloud.eventservice.config.CustomConfig;
-import com.assu.cloud.eventservice.event.model.MemberChangeModel;
 import com.assu.cloud.eventservice.utils.CustomContextInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +30,7 @@ import java.util.List;
 @SpringBootApplication
 @EnableFeignClients
 @EnableResourceServer           // 보호 자원으로 설정
-@EnableBinding(Sink.class)      // 이 애플리케이션을 메시지 브로커와 바인딩하도록 스프링 클라우드 스트림 설정
+//@EnableBinding(Sink.class)      // 이 애플리케이션을 메시지 브로커와 바인딩하도록 스프링 클라우드 스트림 설정
                                 // Sink.class 로 지정 시 해당 서비스가 Sink 클래스에 정의된 채널들을 이용해 메시지 브로커와 통신
 public class EventServiceApplication {
 
@@ -47,10 +46,11 @@ public class EventServiceApplication {
      * 채널에서 받은 메시지를 MemberChangeModel 이라는 POJO 로 자동 역직렬화
      * @param mbChange
      */
-    @StreamListener(Sink.INPUT)     // 메시지가 입력 채널에서 수신될 때마다 이 메서드 실행
+    // CustomChannel 작업하면서 MemberChangeHandler 로 아래 메서드 옮김
+    /*@StreamListener(Sink.INPUT)     // 메시지가 입력 채널에서 수신될 때마다 이 메서드 실행
     public void loggerSink(MemberChangeModel mbChange) {
         logger.info("======= Received an event for organization id {}", mbChange.getUserId());
-    }
+    }*/
 
     /**
      * 레디스 서버에 실제 DB 커넥션을 설정

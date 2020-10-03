@@ -1,14 +1,2 @@
 server:
   port: 8090
-# 스프링 클라우드 스트림 설정
-spring:
-  cloud:
-    stream:   # stream.bindings 는 스트림의 메시지 브로커에 발행하려는 구성의 시작점
-      bindings:
-        output:   # output 은 채널명, SimpleSourceBean.publishMemberChange() 의 source.output() 채널에 매핑됨
-          destination: mbChangeTopic       # 메시지를 넣은 메시지 큐(토픽) 이름
-          content-type: application/json  # 스트림에 송수신할 메시지 타입의 정보 (JSON 으로 직렬화)
-      kafka:    # stream.kafka 는 해당 서비스를 카프카에 바인딩
-        binder:
-          zkNodes: localhost    # zkNodes, brokers 는 스트림에게 카프카와 주키퍼의 네트워크 위치 전달
-          brokers: localhost

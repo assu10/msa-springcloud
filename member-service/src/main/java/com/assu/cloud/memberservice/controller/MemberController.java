@@ -70,12 +70,23 @@ public class MemberController {
      */
     @GetMapping("{userId}")
     public Member userInfoCache(@PathVariable("userId") String userId) {
-        logger.debug("====== 회원 서비스 호출!");
+        logger.debug("====== 회원 저장 서비스 호출!");
 
         // DB 를 조회하여 회원 데이터 조회 (간편성을 위해 아래와 같이 리턴함)
         Member member = new Member();
         member.setId(userId);
         member.setName("rinda");
         return member;
+    }
+
+    /**
+     * 이벤트 서비스에서 캐시 제거를 위한 메서드
+     */
+    @DeleteMapping("userInfo/{userId}")
+    public void deleteUserInfoCache(@PathVariable("userId") String userId) {
+        logger.debug("====== 회원 삭제 후 DELETE 메시지 발생");
+
+        // DB 에 삭제 작업  (간편성을 위해 DB 작업은 생략)
+        simpleSourceBean.publishMemberChange("DELETE", userId);
     }
 }
