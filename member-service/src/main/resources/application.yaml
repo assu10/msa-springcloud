@@ -1,2 +1,57 @@
+spring:
+  application:
+    name: member-service    # 서비스 ID (컨피그 클라이언트가 어떤 서비스를 조회하는지 매핑)
+  profiles:
+    active: default         # 서비스가 실행할 기본 프로파일
+  cloud:  # 스프링 클라우드 스트림 설정
+    stream:   # stream.bindings 는 스트림의 메시지 브로커에 발행하려는 구성의 시작점
+      bindings:
+        output:   # output 은 채널명, SimpleSourceBean.publishMemberChange() 의 source.output() 채널에 매핑됨
+          destination: mbChangeTopic       # 메시지를 넣은 메시지 큐(토픽) 이름
+          content-type: application/json  # 스트림에 송수신할 메시지 타입의 정보 (JSON 으로 직렬화)
+      kafka:    # stream.kafka 는 해당 서비스를 카프카에 바인딩
+        binder:
+          zkNodes: localhost    # zkNodes, brokers 는 스트림에게 카프카와 주키퍼의 네트워크 위치 전달
+          brokers: localhost
 server:
   port: 8090
+your.name: "MEMBER DEFAULT..."
+#spring:
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: '{cipher}17b3128621cb4e71fbb5a85ef726b44951b62fac541e1de6c2728c6e9d3594ec'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+eureka:
+  instance:
+    prefer-ip-address: true   # 서비스 이름 대신 IP 주소 등록
+    lease-renewal-interval-in-seconds: 3  # 디스커버리한테 1초마다 하트비트 전송 (디폴트 30초)
+    lease-expiration-duration-in-seconds: 2 # 디스커버리는 서비스 등록 해제 하기 전에 마지막 하트비트에서부터 2초 기다림 (디폴트 90초)
+  client:
+    register-with-eureka: true    # 유레카 서버에 서비스 등록
+    fetch-registry: true          # 레지스트리 정보를 로컬에 캐싱
+    serviceUrl:
+      defaultZone: http://peer1:8762/eureka/
+    registry-fetch-interval-seconds: 3    # 서비스 목록을 3초마다 캐싱
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.assu.cloud: DEBUG
+service:
+  id:
+    zuul: zuulserver
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8901/auth/user    # OAuth2 콜백 URL
+signing:
+  key: assusingkey

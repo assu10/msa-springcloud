@@ -1,4 +1,33 @@
+spring:
+  application:
+    name: auth-service    # 서비스 ID (컨피그 클라이언트가 어떤 서비스를 조회하는지 매핑)
+  profiles:
+    active: default         # 서비스가 실행할 기본 프로파일
 server:
   port: 8901
   servlet:
     contextPath:   /auth
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+eureka:
+  instance:
+    prefer-ip-address: true   # 서비스 이름 대신 IP 주소 등록
+  client:
+    register-with-eureka: true    # 유레카 서버에 서비스 등록
+    fetch-registry: true          # 레지스트리 정보를 로컬에 캐싱
+    registry-fetch-interval-seconds: 3    # 서비스 목록을 3초마다 캐싱
+    serviceUrl:
+      defaultZone: http://peer1:8762/eureka/
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.assu.cloud: DEBUG
+signing:
+  key: assusingkey
