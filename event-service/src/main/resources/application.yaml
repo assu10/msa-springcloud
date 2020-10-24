@@ -16,16 +16,16 @@ management:
     shutdown:
       enabled: true
 eureka:
-  #instance:
-  #  prefer-ip-address: true   # 서비스 이름 대신 IP 주소 등록
-  #    lease-renewal-interval-in-seconds: 3  # 디스커버리한테 1초마다 하트비트 전송 (디폴트 30초)
-  #    lease-expiration-duration-in-seconds: 2 # 디스커버리는 서비스 등록 해제 하기 전에 마지막 하트비트에서부터 2초 기다림 (디폴트 90초)
+  instance:
+    prefer-ip-address: true   # 서비스 이름 대신 IP 주소 등록
+    lease-renewal-interval-in-seconds: 3  # 디스커버리한테 1초마다 하트비트 전송 (디폴트 30초)
+    lease-expiration-duration-in-seconds: 2 # 디스커버리는 서비스 등록 해제 하기 전에 마지막 하트비트에서부터 2초 기다림 (디폴트 90초)
   client:
-    serviceUrl:
-      defaultZone: http://peer1:8762/eureka/
     register-with-eureka: true    # 유레카 서버에 서비스 등록
     fetch-registry: true          # 레지스트리 정보를 로컬에 캐싱
-    #    registry-fetch-interval-seconds: 3    # 서비스 목록을 3초마다 캐싱
+    serviceUrl:
+      defaultZone: http://peer1:8762/eureka/
+    registry-fetch-interval-seconds: 3    # 서비스 목록을 3초마다 캐싱
 logging:
   level:
     com.netflix: WARN

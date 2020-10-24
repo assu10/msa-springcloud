@@ -20,15 +20,16 @@ management:
     shutdown:
       enabled: true
 eureka:
-  instance:
-    hostname: peer1
-    metadataMap:
-      instanceId: peer1_${spring.application.name}:${spring.application.instance_id:${random.value}}
+#  instance:
+#    hostname: peer1
+#    metadataMap:
+#      instanceId: peer1_${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     register-with-eureka: true           # 유레카 서비스에 (자신을) 등록하지 않는다. (클러스터 모드가 아니므로)
     fetch-registry: true                 # 레지스트리 정보를 로컬에 캐싱하지 않는다. (클러스터 모드가 아니므로)
     serviceUrl:
-      defaultZone: http://peer2:8763/eureka/,http://peer1:8762/eureka/
+      defaultZone: http://peer1:8762/eureka/,http://peer2:8763/eureka/
+
   #server:
     #wait-time-in-ms-when-sync-empty: 5    # 서버가 요청을 받기 전 대기할 초기 시간 (5ms, 운영 환경에선 삭제 필요)
     # 일시적인 네트워크 장애로 인한 서비스 해제 막기 위한 보호모드 해제 (디폴트 60초, 운영에선 삭제 필요)
