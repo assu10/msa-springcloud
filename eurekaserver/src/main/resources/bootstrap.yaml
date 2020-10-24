@@ -1,6 +1,0 @@
-#spring:
-#  application:
-#    name: eurekaserver    # 서비스 ID (컨피그 클라이언트가 어떤 서비스를 조회하는지 매핑)
-#  cloud:
-#    config:
-#      uri: http://localhost:8889  # 컨피그 서버 위치
