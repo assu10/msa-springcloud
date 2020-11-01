@@ -51,7 +51,16 @@ public class EventController {
      */
     @GetMapping(value = "gift/{name}")
     public String gift(@PathVariable("name") String gift) {
+        sleep();
         return "[EVENT] Gift is " + gift;
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(7000);        // 7,000 ms (7초), 기본적으로 히스트릭스는 1초 후에 호출을 타임아웃함
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ import com.assu.cloud.memberservice.event.source.SimpleSourceBean;
 import com.assu.cloud.memberservice.model.Member;
 import com.assu.cloud.memberservice.utils.CustomContextHolder;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.apache.tomcat.util.descriptor.web.ContextHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -95,7 +96,7 @@ public class MemberController {
     }
 
     /**
-     * Hystrix 테스트 (RestTemplate 를 이용하여 이벤트 서비스의 REST API 호출)
+     * Hystrix 기본 테스트 (RestTemplate 를 이용하여 이벤트 서비스의 REST API 호출)
      */
     @HystrixCommand     // 모두 기본값으로 셋팅한다는 의미
     @GetMapping(value = "hys/{name}")
@@ -103,6 +104,19 @@ public class MemberController {
         logger.debug("LicenseService.getLicensesByOrg  Correlation id: {}", CustomContextHolder.getContext().getCorrelationId());
         //randomlyRunLong();
         sleep();
+        return "[MEMBER] " + eventRestTemplateClient.gift(name) + " / port is " + req.getServerPort();
+    }
+
+    /**
+     * Circuit Breaker 타임아웃 설정 (RestTemplate 를 이용하여 이벤트 서비스의 REST API 호출)
+     */
+    /*@HystrixCommand(
+            commandProperties = {
+                    @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",
+                                     value="5000")})   // 회로차단기의 타임아웃 시간을 5초로 설정*/
+    @GetMapping(value = "timeout/{name}")
+    public String timeout(ServletRequest req, @PathVariable("name") String name) {
+        logger.debug("LicenseService.getLicensesByOrg  Correlation id: {}", CustomContextHolder.getContext().getCorrelationId());
         return "[MEMBER] " + eventRestTemplateClient.gift(name) + " / port is " + req.getServerPort();
     }
 
@@ -121,7 +135,7 @@ public class MemberController {
 
     private void sleep() {
         try {
-            Thread.sleep(3000);        // 3,000 ms (3초), 기본적으로 히스트릭스는 1초 후에 호출을 타임아웃함
+            Thread.sleep(7000);        // 3,000 ms (3초), 기본적으로 히스트릭스는 1초 후에 호출을 타임아웃함
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

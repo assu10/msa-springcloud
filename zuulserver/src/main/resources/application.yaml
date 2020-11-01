@@ -40,14 +40,14 @@ zuul:
   sensitive-headers: Cookie,Set-Cookie    # 주울이 하위 서비스에 전파하지 않는 헤더 차단 목록 (디폴트는 Cookie, Set-Cookie, Authorization)
 hystrix:
   command:
-    default:
+    default:    # 유레카 서비스 ID
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 5000   # 히스트릭스 타임아웃 5초로 설정 (기본 1초)
-#event-service:
-#  ribbon:
-#    ReadTimeout: 3000       # 리본 타임아웃 3초로 설정 (기본 5초)
+            timeoutInMilliseconds: 5000  # 히스트릭스 타임아웃 5초로 설정 (기본 1초, ribbon 의 타임아웃보다 커야 기대하는 대로 동작함)
+event-service:
+  ribbon:
+    ReadTimeout: 5000       # 리본 타임아웃 5초로 설정 (기본 5초)
 logging:
   level:
     com.netflix: WARN
