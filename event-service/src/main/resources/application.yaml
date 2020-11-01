@@ -1,3 +1,19 @@
+spring:
+  application:
+    name: event-service    # 서비스 ID (컨피그 클라이언트가 어떤 서비스를 조회하는지 매핑)
+  profiles:
+    active: default         # 서비스가 실행할 기본 프로파일
+  cloud:
+    stream:
+      bindings:
+        inboundMemberChanges:   # inboundMemberChanges 은 채널명, EventServiceApplication 의 Sink.INPUT 채널에 매핑되고, input 채널을 mgChangeTopic 큐에 매핑함
+          destination: mbChangeTopic       # 메시지를 넣은 메시지 큐(토픽) 이름
+          content-type: application/json
+          group: eventGroup   # 메시지를 소비할 소비자 그룹의 이름
+      kafka:    # stream.kafka 는 해당 서비스를 카프카에 바인딩
+        binder:
+          zkNodes: localhost    # zkNodes, brokers 는 스트림에게 카프카와 주키퍼의 네트워크 위치 전달
+          brokers: localhost
 server:
   port: 8070
 your.name: "EVENT DEFAULT."
@@ -41,19 +57,7 @@ security:
       user-info-uri: http://localhost:8901/auth/user    # OAuth2 콜백 URL
 signing:
   key: assusingkey
-# 스프링 클라우드 스트림 설정
-spring:
-  cloud:
-    stream:
-      bindings:
-        inboundMemberChanges:   # inboundMemberChanges 은 채널명, EventServiceApplication 의 Sink.INPUT 채널에 매핑되고, input 채널을 mgChangeTopic 큐에 매핑함
-          destination: mbChangeTopic       # 메시지를 넣은 메시지 큐(토픽) 이름
-          content-type: application/json
-          group: eventGroup   # 메시지를 소비할 소비자 그룹의 이름
-      kafka:    # stream.kafka 는 해당 서비스를 카프카에 바인딩
-        binder:
-          zkNodes: localhost    # zkNodes, brokers 는 스트림에게 카프카와 주키퍼의 네트워크 위치 전달
-          brokers: localhost
+
 #spring:
 #  cloud:
 #    stream:
