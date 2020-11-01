@@ -17,7 +17,7 @@ public class EventRestTemplateClient {
         this.customConfig = customConfig;
     }
 
-    String URL_PREFIX = "/api/evt/event/";      // 이벤트 서비스의 주울 라우팅경로와 이벤트 클래스 주소
+    String ZUUL_URL_PREFIX = "/api/evt/event/";      // 이벤트 서비스의 주울 라우팅경로와 이벤트 클래스 주소
 
     public String gift(String name) {
         /*ResponseEntity<EventGift> restExchange =
@@ -28,7 +28,7 @@ public class EventRestTemplateClient {
                 );*/
         ResponseEntity<String> restExchange =
                 restTemplate.exchange(
-                        "http://" + customConfig.getServiceIdZuul() + URL_PREFIX + "gift/{name}",   // http://localhost:5555/api/mb/member/gift/flower
+                        "http://" + customConfig.getServiceIdZuul() + ZUUL_URL_PREFIX + "gift/{name}",   // http://localhost:5555/api/mb/member/gift/flower
                         HttpMethod.GET,
                         null, String.class, name
                 );

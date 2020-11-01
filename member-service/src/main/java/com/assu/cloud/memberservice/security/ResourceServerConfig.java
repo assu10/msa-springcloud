@@ -24,11 +24,18 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         // 회원 서비스의 모든 URL 에 대해 인증된 사용자만 접근하도록 제한
         //http.authorizeRequests().anyRequest().authenticated();
 
-        http.authorizeRequests()
+        // 편의성을 위해 주석 처리
+        /*http.authorizeRequests()
                 //.antMatchers(HttpMethod.PUT, "/member/**")  // 쉼표로 구분하여 엔드 포인트 목록 받음
                 .antMatchers(HttpMethod.DELETE, "/member/**")  // 쉼표로 구분하여 엔드 포인트 목록 받음
                 .hasRole("ADMIN")   // ADMIN 권한을 가진 사용자만 PUT 호출 가능
                 .anyRequest()       // 서비스의 모든 엔드포인트도 인증된 사용자만 접근 가능하도록 설정
-                .authenticated();
+                .authenticated();*/
+
+        // 편의성을 위해 DELETE 메서드만 인증된 사용자가 호출가능하도록 수정
+        http.authorizeRequests()
+                //.antMatchers(HttpMethod.PUT, "/member/**")  // 쉼표로 구분하여 엔드 포인트 목록 받음
+                .antMatchers(HttpMethod.DELETE, "/member/**")  // 쉼표로 구분하여 엔드 포인트 목록 받음
+                .hasRole("ADMIN");   // ADMIN 권한을 가진 사용자만 PUT 호출 가능
     }
 }
