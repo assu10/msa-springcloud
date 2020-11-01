@@ -3,6 +3,7 @@ package com.assu.cloud.memberservice;
 import com.assu.cloud.memberservice.utils.CustomContextInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -20,6 +21,7 @@ import java.util.List;
 @EnableResourceServer           // 보호 자원으로 설정
 @EnableBinding(Source.class)    // 이 애플리케이션을 메시지 브로커와 바인딩하도록 스프링 클라우드 스트림 설정
                                 // Source.class 로 지정 시 해당 서비스가 Source 클래스에 정의된 채널들을 이용해 메시지 브로커와 통신
+@EnableCircuitBreaker           // Hystrix
 public class MemberServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(MemberServiceApplication.class, args);
