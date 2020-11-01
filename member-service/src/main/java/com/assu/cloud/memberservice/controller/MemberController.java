@@ -116,7 +116,6 @@ public class MemberController {
                                      value="5000")})   // 회로차단기의 타임아웃 시간을 5초로 설정*/
     @GetMapping(value = "timeout/{name}")
     public String timeout(ServletRequest req, @PathVariable("name") String name) {
-        logger.debug("LicenseService.getLicensesByOrg  Correlation id: {}", CustomContextHolder.getContext().getCorrelationId());
         return "[MEMBER] " + eventRestTemplateClient.gift(name) + " / port is " + req.getServerPort();
     }
 
