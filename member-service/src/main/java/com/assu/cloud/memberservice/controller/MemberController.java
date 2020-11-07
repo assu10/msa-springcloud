@@ -1,5 +1,6 @@
 package com.assu.cloud.memberservice.controller;
 
+import com.assu.cloud.memberservice.client.BbsRestTemplateClient;
 import com.assu.cloud.memberservice.client.EventRestTemplateClient;
 import com.assu.cloud.memberservice.config.CustomConfig;
 import com.assu.cloud.memberservice.event.source.SimpleSourceBean;
@@ -23,11 +24,13 @@ public class MemberController {
 
     private final CustomConfig customConfig;
     private final EventRestTemplateClient eventRestTemplateClient;
+    private final BbsRestTemplateClient bbsRestTemplateClient;
     private final SimpleSourceBean simpleSourceBean;
 
-    public MemberController(CustomConfig customConfig, EventRestTemplateClient eventRestTemplateClient, SimpleSourceBean simpleSourceBean) {
+    public MemberController(CustomConfig customConfig, EventRestTemplateClient eventRestTemplateClient, BbsRestTemplateClient bbsRestTemplateClient, SimpleSourceBean simpleSourceBean) {
         this.customConfig = customConfig;
         this.eventRestTemplateClient = eventRestTemplateClient;
+        this.bbsRestTemplateClient = bbsRestTemplateClient;
         this.simpleSourceBean = simpleSourceBean;
     }
 
@@ -114,9 +117,30 @@ public class MemberController {
             commandProperties = {
                     @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",
                                      value="5000")})   // 회로차단기의 타임아웃 시간을 5초로 설정*/
+    @HystrixCommand(fallbackMethod = "timeoutFallback")
     @GetMapping(value = "timeout/{name}")
     public String timeout(ServletRequest req, @PathVariable("name") String name) {
         return "[MEMBER] " + eventRestTemplateClient.gift(name) + " / port is " + req.getServerPort();
+    }
+
+    /**
+     * timeout 메서드의 폴백 메서드
+     */
+    public String timeoutFallback(ServletRequest req, @PathVariable("name") String name) {
+        return "This is timeoutFallback test.";
+    }
+
+    @HystrixCommand( //fallbackMethod = "timeoutFallback")
+            threadPoolKey = "mainThreadPool",
+            threadPoolProperties =
+                    {@HystrixProperty(name = "coreSize", value = "30"),      // 스레드풀의 스레드 갯수
+                     @HystrixProperty(name = "maxQueueSize", value = "10")}   // 스레드 풀 앞에 배치할 큐와 큐에 넣을 요청 수
+    )
+    @GetMapping(value = "bulkhead/{name}")
+    public String bulkhead(ServletRequest req, @PathVariable("name") String name) {
+        String eventApi = eventRestTemplateClient.gift(name);
+        String bbsApi = bbsRestTemplateClient.gift(name);
+        return "[MEMBER] " + eventApi + "===" + bbsApi;
     }
 
     /**

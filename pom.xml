@@ -23,6 +23,7 @@
     <module>eurekaserver</module>
     <module>zuulserver</module>
     <module>auth-service</module>
+    <module>bbs-service</module>
   </modules>
 
   <build>

@@ -47,11 +47,11 @@ public class EventController {
     }
 
     /**
-     * 회원 서비스에서 호출할 메서드
+     * 회원 서비스에서 호출할 메서드 (fallback test)
      */
     @GetMapping(value = "gift/{name}")
     public String gift(@PathVariable("name") String gift) {
-        sleep();
+        //sleep();
         return "[EVENT] Gift is " + gift;
     }
 
