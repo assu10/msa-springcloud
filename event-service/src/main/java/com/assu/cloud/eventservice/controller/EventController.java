@@ -51,7 +51,15 @@ public class EventController {
      */
     @GetMapping(value = "gift/{name}")
     public String gift(@PathVariable("name") String gift) {
-        //sleep();
+        sleep();
+        return "[EVENT] Gift is " + gift;
+    }
+
+    /**
+     * 회원 서비스에서 호출할 메서드 (fallback test)
+     */
+    @GetMapping(value = "gift2/{name}")
+    public String gift2(@PathVariable("name") String gift) {
         return "[EVENT] Gift is " + gift;
     }
 

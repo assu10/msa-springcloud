@@ -1,6 +1,5 @@
 package com.assu.cloud.memberservice.controller;
 
-import com.assu.cloud.memberservice.client.BbsRestTemplateClient;
 import com.assu.cloud.memberservice.client.EventRestTemplateClient;
 import com.assu.cloud.memberservice.config.CustomConfig;
 import com.assu.cloud.memberservice.event.source.SimpleSourceBean;
@@ -8,7 +7,6 @@ import com.assu.cloud.memberservice.model.Member;
 import com.assu.cloud.memberservice.utils.CustomContextHolder;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import org.apache.tomcat.util.descriptor.web.ContextHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -24,13 +22,11 @@ public class MemberController {
 
     private final CustomConfig customConfig;
     private final EventRestTemplateClient eventRestTemplateClient;
-    private final BbsRestTemplateClient bbsRestTemplateClient;
     private final SimpleSourceBean simpleSourceBean;
 
-    public MemberController(CustomConfig customConfig, EventRestTemplateClient eventRestTemplateClient, BbsRestTemplateClient bbsRestTemplateClient, SimpleSourceBean simpleSourceBean) {
+    public MemberController(CustomConfig customConfig, EventRestTemplateClient eventRestTemplateClient, SimpleSourceBean simpleSourceBean) {
         this.customConfig = customConfig;
         this.eventRestTemplateClient = eventRestTemplateClient;
-        this.bbsRestTemplateClient = bbsRestTemplateClient;
         this.simpleSourceBean = simpleSourceBean;
     }
 
@@ -130,17 +126,71 @@ public class MemberController {
         return "This is timeoutFallback test.";
     }
 
-    @HystrixCommand( //fallbackMethod = "timeoutFallback")
-            threadPoolKey = "mainThreadPool",
-            threadPoolProperties =
-                    {@HystrixProperty(name = "coreSize", value = "30"),      // 스레드풀의 스레드 갯수
-                     @HystrixProperty(name = "maxQueueSize", value = "10")}   // 스레드 풀 앞에 배치할 큐와 큐에 넣을 요청 수
-    )
-    @GetMapping(value = "bulkhead/{name}")
-    public String bulkhead(ServletRequest req, @PathVariable("name") String name) {
+    @GetMapping(value = "bulkheadMain/{name}")
+    public String bulkheadMain(ServletRequest req, @PathVariable("name") String name) {
         String eventApi = eventRestTemplateClient.gift(name);
-        String bbsApi = bbsRestTemplateClient.gift(name);
-        return "[MEMBER] " + eventApi + "===" + bbsApi;
+        return "[MEMBER] " + eventApi;
+    }
+
+    /**
+     * eventThreadPool 을 사용하면서 sleep() 이 있는 이벤트 서비스를 호출하는 함수
+     */
+    @HystrixCommand( //fallbackMethod = "timeoutFallback")
+            threadPoolKey = "eventThreadPool",
+            threadPoolProperties =
+                    {@HystrixProperty(name = "coreSize", value = "30"),         // 스레드 풀의 스레드 갯수 (디폴트 10)
+                     @HystrixProperty(name = "maxQueueSize", value = "10")},    // 스레드 풀 앞에 배치할 큐와 큐에 넣을 요청 수 (디폴트 -1)
+            commandProperties = {
+                    // 히스트릭스가 호출 차단을 고려하는데 필요한 시간인 10초(metrics.rollingStats.timeInMilliseconds) 동안 연속 호출 횟수 (디폴트 20)
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2"),
+                    // 서킷 브레이커가 열린 후 requestVolumeThreshold 값만큼 호출한 후 타임아웃, 예외, HTTP 500 반환등으로 실패해야 하는 호출 비율 (디폴트 50)
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "10"),
+                    // 서킷 브레이커가 열린 후 서비스의 회복 상태를 확인할 때까지 대기할 시간 간격. 즉, 서킷 브레이커가 열렸을 때 얼마나 지속될지...(디폴트 5000)
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "7000"),
+                    // 서비스 호출 문제를 모니터할 시간 간격. 즉 서킷 브레이커가 열리기 위한 조건을 체크할 시간. (디폴트 10초)
+                    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "15000"),
+                    // 설정한 시간 간격동안 통계를 수집할 횟수 (이 버킷수는 모니터 시간 간격에 균등하게 분할되어야 함
+                    // 여기선 15초 시간 간격을 사용하고, 3초 길이의 5개 버킷에 통계 데이터 수집
+                    @HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5")}
+    )
+    @GetMapping(value = "bulkheadEvtSleep/{name}")
+    public String bulkheadEvtSleep(@PathVariable("name") String name) {
+        String eventApi = eventRestTemplateClient.gift(name);
+        return "[MEMBER] " + eventApi;
+    }
+
+    /**
+     * eventThreadPool 을 사용하지만 sleep() 이 없는 이벤트 서비스를 호출하는 함수
+     * 바로 위 함수에서 서킷 브레이커가 열려도 아래 함수는 정상 동작함 (스레드 풀 키를 이런 식으로 공유해서 사용할 수 없는 것 같음)
+     */
+    @HystrixCommand( //fallbackMethod = "timeoutFallback")
+            threadPoolKey = "eventThreadPool",
+            threadPoolProperties =
+                    {@HystrixProperty(name = "coreSize", value = "30"),         // 스레드 풀의 스레드 갯수 (디폴트 10)
+                     @HystrixProperty(name = "maxQueueSize", value = "10")},    // 스레드 풀 앞에 배치할 큐와 큐에 넣을 요청 수 (디폴트 -1)
+            commandProperties = {
+                    // 히스트릭스가 호출 차단을 고려하는데 필요한 시간인 10초(metrics.rollingStats.timeInMilliseconds) 동안 연속 호출 횟수 (디폴트 20)
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2"),
+                    // 서킷 브레이커가 열린 후 requestVolumeThreshold 값만큼 호출한 후 타임아웃, 예외, HTTP 500 반환등으로 실패해야 하는 호출 비율 (디폴트 50)
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "75"),
+                    // 서킷 브레이커가 열린 후 서비스의 회복 상태를 확인할 때까지 대기할 시간 간격. 즉, 서킷 브레이커가 열렸을 때 얼마나 지속될지...(디폴트 5000)
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "7000"),
+                    // 서비스 호출 문제를 모니터할 시간 간격. 즉 서킷 브레이커가 열리기 위한 조건을 체크할 시간. (디폴트 10초)
+                    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "15000"),
+                    // 설정한 시간 간격동안 통계를 수집할 횟수 (이 버킷수는 모니터 시간 간격에 균등하게 분할되어야 함
+                    // 여기선 15초 시간 간격을 사용하고, 3초 길이의 5개 버킷에 통계 데이터 수집
+                    @HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5")}
+    )
+    @GetMapping(value = "bulkheadEvtNotSleepPool/{name}")
+    public String bulkheadEvtPool(ServletRequest req, @PathVariable("name") String name) {
+        String eventApi = eventRestTemplateClient.gift2(name);
+        return "[MEMBER] " + eventApi;
+    }
+
+    @GetMapping(value = "bulkheadEvtNotSleepNotPool/{name}")
+    public String bulkheadEvtNotPool(ServletRequest req, @PathVariable("name") String name) {
+        String eventApi = eventRestTemplateClient.gift2(name);
+        return "[MEMBER] " + eventApi;
     }
 
     /**

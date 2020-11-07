@@ -37,7 +37,6 @@ zuul:
   routes:
     event-service: /evt/**
     member-service: /mb/**
-    bbs-service: /bbs/**
   sensitive-headers: Cookie,Set-Cookie    # 주울이 하위 서비스에 전파하지 않는 헤더 차단 목록 (디폴트는 Cookie, Set-Cookie, Authorization)
 hystrix:
   command:

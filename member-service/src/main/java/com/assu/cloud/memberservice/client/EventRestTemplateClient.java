@@ -35,4 +35,21 @@ public class EventRestTemplateClient {
 
         return restExchange.getBody();
     }
+
+    public String gift2(String name) {
+        /*ResponseEntity<EventGift> restExchange =
+                restTemplate.exchange(
+                    "http://event-service/event/gift/{name}",
+                    HttpMethod.GET,
+                    null, EventGift.class, name
+                );*/
+        ResponseEntity<String> restExchange =
+                restTemplate.exchange(
+                        "http://" + customConfig.getServiceIdZuul() + ZUUL_URL_PREFIX + "gift2/{name}",   // http://localhost:5555/api/mb/member/gift/flower
+                        HttpMethod.GET,
+                        null, String.class, name
+                );
+
+        return restExchange.getBody();
+    }
 }
