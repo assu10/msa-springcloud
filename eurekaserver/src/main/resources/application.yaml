@@ -1,3 +1,7 @@
 spring:
   profiles:
     active: peer1
+#  cloud:
+#    inetutils:
+#      ignored-interfaces: eth1*     # 해당 인터페이스 무시
+#      preferred-networks: 192.168   # 선호하는 IP 주소 설정

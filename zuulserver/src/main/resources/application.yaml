@@ -3,6 +3,7 @@ spring:
     name: zuulserver    # 서비스 ID (컨피그 클라이언트가 어떤 서비스를 조회하는지 매핑)
   profiles:
     active: default         # 서비스가 실행할 기본 프로파일
+
 server:
   port: 5555
 your.name: "ZUUL DEFAULT"
@@ -20,17 +21,36 @@ management:
   endpoint:
     shutdown:
       enabled: true
+
 eureka:
-  instance:
-    prefer-ip-address: true   # 서비스 이름 대신 IP 주소 등록
-    lease-renewal-interval-in-seconds: 3  # 디스커버리한테 1초마다 하트비트 전송 (디폴트 30초)
-    lease-expiration-duration-in-seconds: 2 # 디스커버리는 서비스 등록 해제 하기 전에 마지막 하트비트에서부터 2초 기다림 (디폴트 90초)
   client:
-    register-with-eureka: true    # 유레카 서버에 서비스 등록
-    fetch-registry: true          # 레지스트리 정보를 로컬에 캐싱
+    register-with-eureka: true    # 레지스트리에 자신을 등록할지에 대한 여부 (디폴트 true)
+    fetch-registry: true    # 레지스트리에 있는 정보를 가져올지에 대한 여부  (디폴트 true)
+    registry-fetch-interval-seconds: 30   # 서비스 목록을 설정한 시간마다 캐싱 (디폴트 30초)
+    disable-delta: true   # 캐싱 시 변경된 부분만 업데이트할 지 여부 (디폴트 false)
     serviceUrl:
       defaultZone: http://peer1:8762/eureka/
-    registry-fetch-interval-seconds: 3    # 서비스 목록을 3초마다 캐싱
+  instance:
+    lease-renewal-interval-in-seconds: 10    # 유레카 서버로 설정된 시간(second)마다 하트비트 전송 (디폴트 30초)
+    # 디스커버리는 서비스 등록 해제 하기 전에 마지막 하트비트에서부터 설정된 시간(second) 동안 하트비트가 수신되지 않으면
+    # 서비스 등록 해제 (디폴트 90초)
+    lease-expiration-duration-in-seconds: 15
+    prefer-ip-address: true   # 서비스의 호스트 이름이 아닌 IP 주소를 유레카 서버에 등록하도록 지정 (디폴트 false)
+
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 3
+#    lease-expiration-duration-in-seconds: 2
+#  client:
+#    register-with-eureka: true    # 레지스트리에 자신을 등록할지에 대한 여부 (디폴트 true)
+#    fetch-registry: true    # 레지스트리에 있는 정보를 가져올지에 대한 여부  (디폴트 true)
+#    registry-fetch-interval-seconds: 3
+#    disable-delta: true
+#    serviceUrl:
+#      defaultZone: http://peer1:8762/eureka/
+
 zuul:
   ignored-services: '*'       # 유레카 기반 모든 경로 제외
   prefix: /api                # 정의한 모든 서비스에 /api 접두어
@@ -50,7 +70,7 @@ event-service:
     ReadTimeout: 5000       # 리본 타임아웃 5초로 설정 (기본 5초)
 logging:
   level:
-    com.netflix: WARN
+    com.netflix: DEBUG
     org.springframework.web: WARN
     com.assu.cloud: DEBUG
 signing:
