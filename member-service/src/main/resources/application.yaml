@@ -40,10 +40,10 @@ eureka:
     serviceUrl:
       defaultZone: http://peer1:8762/eureka/
   instance:
-    lease-renewal-interval-in-seconds: 10    # 유레카 서버로 설정된 시간(second)마다 하트비트 전송 (디폴트 30초)
+    lease-renewal-interval-in-seconds: 30    # 유레카 서버로 설정된 시간(second)마다 하트비트 전송 (디폴트 30초)
     # 디스커버리는 서비스 등록 해제 하기 전에 마지막 하트비트에서부터 설정된 시간(second) 동안 하트비트가 수신되지 않으면
     # 서비스 등록 해제 (디폴트 90초)
-    lease-expiration-duration-in-seconds: 15
+    lease-expiration-duration-in-seconds: 90
     prefer-ip-address: true   # 서비스의 호스트 이름이 아닌 IP 주소를 유레카 서버에 등록하도록 지정 (디폴트 false)
 
 logging:
@@ -51,6 +51,7 @@ logging:
     com.netflix: WARN
     org.springframework.web: WARN
     com.assu.cloud: DEBUG
+
 service:
   id:
     zuul: zuulserver

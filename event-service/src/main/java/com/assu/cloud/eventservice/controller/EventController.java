@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletRequest;
+
 @RestController
 @RequestMapping("/event")
 public class EventController {
@@ -28,14 +30,14 @@ public class EventController {
     }
 
     @GetMapping(value = "name/{nick}")
-    public String getYourName(@PathVariable("nick") String nick) {
+    public String getYourName(ServletRequest req, @PathVariable("nick") String nick) {
         // 히스트릭트 타임아웃을 테스트하기 위함
         /*try {
             Thread.sleep(4000);
         } catch(InterruptedException e) {
             e.printStackTrace();;
         }*/
-        return "[EVENT] Your name is " + customConfig.getYourName() + ", nickname is " + nick;
+        return "[EVENT] Your name is " + customConfig.getYourName() + ", nickname is " + nick + ", port is " + req.getServerPort();
     }
 
     /**
