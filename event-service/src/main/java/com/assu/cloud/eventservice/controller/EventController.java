@@ -65,9 +65,17 @@ public class EventController {
         return "[EVENT] Gift is " + gift;
     }
 
+
+    @GetMapping(value = "timeout")
+    public String timeout() {
+
+        sleep();
+        return "[EVENT] good";
+    }
+
     private void sleep() {
         try {
-            Thread.sleep(7000);        // 7,000 ms (7초), 기본적으로 히스트릭스는 1초 후에 호출을 타임아웃함
+            Thread.sleep(10000);        // 7,000 ms (7초), 기본적으로 히스트릭스는 1초 후에 호출을 타임아웃함
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

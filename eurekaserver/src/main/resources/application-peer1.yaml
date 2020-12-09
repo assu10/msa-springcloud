@@ -22,7 +22,7 @@ management:
 
 eureka:
   server:
-    enable-self-preservation: false   # 일시적인 네트워크 장애로 인한 서비스 해제 막기 위한 자기 보호 모드 (디폴트 true, 운영에선 반드시 true 로 설정 필요)
+    enable-self-preservation: true   # 일시적인 네트워크 장애로 인한 서비스 해제 막기 위한 자기 보호 모드 (디폴트 true, 운영에선 반드시 true 로 설정 필요)
     response-cache-update-interval-ms: 30000  # 유레카 서버의 캐싱 업데이트 주기 (디폴트 30,000ms)
     eviction-interval-timer-in-ms: 60000  # 클라이언트로부터 하트비트가 계속 수신 되는지 점검 (디폴트 60,000)
     wait-time-in-ms-when-sync-empty: 3000   # 유레카 서버가 시작되고 유레카 피어링 노드로부터 Instance 들을 가져올 수 없을 때 기다릴 시간 (디폴트 3000ms, 운영 환경에선 삭제 필요)
@@ -31,7 +31,8 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     serviceUrl:
-      defaultZone: http://peer2:8763/eureka/
+#      defaultZone: http://peer2:8763/eureka/   # 피어링 시 필요
+      defaultZone: http://peer1:8762/eureka/
 
 logging:
   level:
