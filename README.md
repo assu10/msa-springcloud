@@ -76,7 +76,8 @@ POST http://localhost:8889/decrypt
 ---
 
 ***- Eureka (Service Registry & Discovery)***<br />
-자세한 설명은 [Spring Cloud - Spring Cloud Eureka](https://assu10.github.io/dev/2020/08/26/spring-cloud-eureka/) 를 참고
+자세한 설명은 [Spring Cloud - Spring Cloud Eureka](https://assu10.github.io/dev/2020/08/26/spring-cloud-eureka/)와
+[Spring Cloud - Spring Cloud Eureka (상세 설정편)](https://assu10.github.io/dev/2020/12/05/spring-cloud-eureka-configuration/)를 참고
 
 ```shell script
 HOW TO RUN
@@ -136,7 +137,8 @@ GET http://localhost:8070/event/member/hyori
 
 ***- Zuul (Proxy & API Gateway)***<br />
 자세한 설명은 [Spring Cloud - Netflix Zuul(1/2)](https://assu10.github.io/dev/2020/08/26/netflix-zuul/)와 
-[Spring Cloud - Netflix Zuul(2/2)](https://assu10.github.io/dev/2020/09/05/netflix-zuul2/) 를 참고
+[Spring Cloud - Netflix Zuul(2/2)](https://assu10.github.io/dev/2020/09/05/netflix-zuul2/), 
+[Spring Cloud - Netflix Zuul(Ribbon) Retry](https://assu10.github.io/dev/2020/12/06/netflix-zuul-retryable/)를 참고
 
 ```shell script
 HOW TO RUN

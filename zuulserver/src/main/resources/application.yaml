@@ -52,7 +52,7 @@ event-service:    # 이 부분이 없으면 전체적으로 설정 적용
     MaxAutoRetriesNextServer: 1   # 첫 시도 실패시 다음 서버로 재시도 하는 수 (첫번째 전송은 제외)
 #    ReadTimeout: 1000       # HttpClient 의 Read Timeout (데이터를 읽어오는 과정의 Timeout 시간)
 #    ConnectTimeout: 2000    # HttpClient 의 Connection timeout (연결과정의 Timeout 시간)
-    ReadTimeout: 1000       # HttpClient 의 Read Timeout (디폴트 1,000 ms, 데이터를 읽어오는 과정의 Timeout 시간)
+    ReadTimeout: 3000       # HttpClient 의 Read Timeout (디폴트 1,000 ms, 데이터를 읽어오는 과정의 Timeout 시간)
     ConnectTimeout: 1000    # HttpClient 의 Connection timeout (디폴트 1,000 ms, 연결과정의 Timeout 시간)
 
 hystrix:
@@ -60,7 +60,7 @@ hystrix:
     default:
       circuitBreaker:
         sleepWindowInMilliseconds: 5000  # 서킷 브레이커가 열린 후 서비스의 회복 상태를 확인할 때까지 대기할 시간 간격. 즉, 서킷 브레이커가 열렸을 때 얼마나 지속될지...(디폴트 5000)
-        errorThresholdPercentage: 50  # 서킷 브레이커가 열린 후 requestVolumeThreshold 값만큼 호출한 후 타임아웃, 예외, HTTP 500 반환등으로 실패해야 하는 호출 비율 (디폴트 50)
+        errorThresholdPercentage: 50  # 서킷 브레이커가 열리기 위헤 requestVolumeThreshold 값만큼 호출한 후 타임아웃, 예외, HTTP 500 반환등으로 실패해야 하는 호출 비율 (디폴트 50)
         requestVolumeThreshold: 10  # 히스트릭스가 호출 차단을 고려하는데 필요한 시간인 10초(metrics.rollingStats.timeInMilliseconds) 동안 연속 호출 횟수 (디폴트 20)
       metrics:
         rollingStats:
@@ -71,7 +71,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 4100  # 히스트릭스 타임아웃 5초로 설정 (기본 1초, ribbon 의 타임아웃보다 커야 기대하는 대로 동작함)
+            timeoutInMilliseconds: 8100  # 히스트릭스 타임아웃 5초로 설정 (기본 1초, ribbon 의 타임아웃보다 커야 기대하는 대로 동작함)
 
 logging:
   level:

@@ -53,7 +53,7 @@ public class EventController {
      */
     @GetMapping(value = "gift/{name}")
     public String gift(@PathVariable("name") String gift) {
-        sleep();
+        //sleep();
         return "[EVENT] Gift is " + gift;
     }
 

@@ -20,6 +20,7 @@ public class EventRestTemplateClient {
     String ZUUL_URL_PREFIX = "/api/evt/event/";      // 이벤트 서비스의 주울 라우팅경로와 이벤트 클래스 주소
 
     public String gift(String name) {
+        System.out.println("----------http://" + customConfig.getServiceIdZuul() + ZUUL_URL_PREFIX + "gift/{name}");
         /*ResponseEntity<EventGift> restExchange =
                 restTemplate.exchange(
                     "http://event-service/event/gift/{name}",
