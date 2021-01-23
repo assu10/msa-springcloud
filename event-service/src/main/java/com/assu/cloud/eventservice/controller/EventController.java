@@ -5,6 +5,8 @@ import com.assu.cloud.eventservice.client.MemberRestTemplateClient;
 import com.assu.cloud.eventservice.client.MemberFeignClient;
 import com.assu.cloud.eventservice.config.CustomConfig;
 import com.assu.cloud.eventservice.model.Member;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,8 @@ import javax.servlet.ServletRequest;
 @RestController
 @RequestMapping("/event")
 public class EventController {
-    
+
+    private static final Logger logger = LoggerFactory.getLogger(EventController.class);
 
     private final CustomConfig customConfig;
     private final MemberFeignClient memberFeignClient;
@@ -38,6 +41,8 @@ public class EventController {
         } catch(InterruptedException e) {
             e.printStackTrace();;
         }*/
+
+        logger.info("[EVENT] name/{nick} logging...nick is {}.", nick);
         return "[EVENT] Your name is " + customConfig.getYourName() + ", nickname is " + nick + ", port is " + req.getServerPort();
     }
 

@@ -32,6 +32,7 @@ public class MemberController {
 
     @GetMapping(value = "name/{nick}")
     public String getYourName(ServletRequest req, @PathVariable("nick") String nick) {
+        logger.info("[MEMBER] name/{nick} logging...nick is {}.", nick);
         return "[MEMBER] Your name is " + customConfig.getYourName() + " / nickname is " + nick + " / port is " + req.getServerPort();
     }
 
