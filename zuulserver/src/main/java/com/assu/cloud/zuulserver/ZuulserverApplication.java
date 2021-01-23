@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableZuulProxy        // 주울 서버로 사용
-//@EnableCircuitBreaker
+@EnableCircuitBreaker
 public class ZuulserverApplication {
 
     public static void main(String[] args) {

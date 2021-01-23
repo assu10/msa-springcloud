@@ -15,6 +15,7 @@ import javax.servlet.ServletRequest;
 @RestController
 @RequestMapping("/event")
 public class EventController {
+    
 
     private final CustomConfig customConfig;
     private final MemberFeignClient memberFeignClient;
