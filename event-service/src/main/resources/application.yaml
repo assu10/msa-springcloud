@@ -14,6 +14,14 @@ spring:
         binder:
           zkNodes: localhost    # zkNodes, brokers 는 스트림에게 카프카와 주키퍼의 네트워크 위치 전달
           brokers: localhost
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411   # 집킨 통신에 사용되는 URL
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0    # 집킨 으로 데이터를 전송하는 트랜잭션 샘플링 비율
+
 server:
   port: 8070
 your.name: "EVENT DEFAULT."

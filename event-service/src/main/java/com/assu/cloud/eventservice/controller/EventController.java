@@ -51,6 +51,7 @@ public class EventController {
      */
     @GetMapping(value = "member/{nick}")
     public String getMemberName(@PathVariable("nick") String nick) {
+        logger.info("[EVENT] Calling member's name/nick {}", nick);
         return memberFeignClient.getYourName(nick);
     }
 
@@ -60,6 +61,10 @@ public class EventController {
     @GetMapping(value = "gift/{name}")
     public String gift(@PathVariable("name") String gift) {
         //sleep();
+        logger.info("[EVENT] Gift is {} logging...gift is {}.", gift);
+
+        memberFeignClient.getYourName(gift);
+
         return "[EVENT] Gift is " + gift;
     }
 

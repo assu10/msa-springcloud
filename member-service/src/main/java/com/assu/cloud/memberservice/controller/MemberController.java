@@ -32,7 +32,7 @@ public class MemberController {
 
     @GetMapping(value = "name/{nick}")
     public String getYourName(ServletRequest req, @PathVariable("nick") String nick) {
-        logger.info("[MEMBER] name/{nick} logging...nick is {}.", nick);
+        logger.info("[MEMBER] ASSU name/{nick} logging...nick is {}.", nick);
         return "[MEMBER] Your name is " + customConfig.getYourName() + " / nickname is " + nick + " / port is " + req.getServerPort();
     }
 
@@ -41,6 +41,7 @@ public class MemberController {
      */
     @GetMapping(value = "gift/{name}")
     public String gift(ServletRequest req, @PathVariable("name") String name) {
+        logger.info("[MEMBER] gift/{name} logging...name is {}.", name);
         return "[MEMBER] " + eventRestTemplateClient.gift(name) + " / port is " + req.getServerPort();
     }
 
